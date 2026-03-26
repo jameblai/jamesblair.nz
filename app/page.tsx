@@ -202,7 +202,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tech.map((item) => (
             <li
               key={item}
-              className="px-2 py-1 border border-salmon font-mono border-dashed text-sm"
+              className="px-2 py-1 border text-salmon border-salmon font-mono border-dashed text-sm"
             >
               {item}
             </li>
