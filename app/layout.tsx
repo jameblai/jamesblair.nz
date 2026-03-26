@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/cn";
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
@@ -17,12 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${mono.className} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className="h-full antialiased">
+      <body
+        className={cn(
+          "min-h-full flex flex-col leading-relaxed",
+          mono.className,
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
