@@ -10,6 +10,7 @@ interface Project {
     label: string;
     href: string;
   }[];
+  tech?: string[];
 }
 
 export default function Home() {
@@ -118,6 +119,15 @@ function Projects() {
           href: "https://github.com/waimun-org/waimun",
         },
       ],
+      tech: [
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "Sanity CMS",
+        "Airtable",
+        "Stripe",
+        "React Email",
+      ],
     },
     {
       name: "Air Quality Monitor",
@@ -128,6 +138,16 @@ function Projects() {
           href: "https://github.com/jameblai/air-quality",
           label: "GitHub",
         },
+      ],
+      tech: [
+        "C++",
+        "Arduino",
+        "TypeScript",
+        "Hono",
+        "Drizzle ORM",
+        "Next.js",
+        "Tailwind CSS",
+        "TanStack Query",
       ],
     },
     {
@@ -144,11 +164,13 @@ function Projects() {
           label: "GitHub",
         },
       ],
+      tech: ["TypeScript", "Astro", "SolidJS", "Tailwind CSS", "Sentry"],
     },
     {
       name: "Bridging Plugin",
       description:
         "Developed a multiplayer game server plugin in Kotlin, implementing a session replay system, packet-level NMS hooks, and a persistent MariaDB database layer using Exposed and coroutines for async handling.",
+      tech: ["Kotlin", "Spigot", "Exposed", "MariaDB"],
     },
     {
       name: "PaperSpigot Fork",
@@ -175,7 +197,20 @@ function ProjectCard({ project }: { project: Project }) {
 
       <p>{project.description}</p>
 
-      {project.links?.length ? (
+      {project.tech?.length && (
+        <ul className="flex flex-wrap gap-2">
+          {project.tech.map((item) => (
+            <li
+              key={item}
+              className="px-2 py-1 border border-salmon font-mono border-dashed text-sm"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {project.links?.length && (
         <div className="flex gap-4 mt-auto">
           {project.links.map((link) => (
             <Link key={link.label} href={link.href}>
@@ -183,7 +218,7 @@ function ProjectCard({ project }: { project: Project }) {
             </Link>
           ))}
         </div>
-      ) : null}
+      )}
     </Card>
   );
 }
