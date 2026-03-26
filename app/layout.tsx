@@ -1,9 +1,26 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  IBM_Plex_Mono,
+  IBM_Plex_Sans,
+  Inter,
+  JetBrains_Mono,
+  Lato,
+  Lilex,
+  Nunito,
+  Open_Sans,
+} from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/cn";
 
-const mono = JetBrains_Mono({
+const sans = IBM_Plex_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+});
+
+const mono = Lilex({
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -18,13 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body
-        className={cn(
-          "min-h-full flex flex-col leading-relaxed",
-          mono.className,
-        )}
-      >
+    <html
+      lang="en"
+      className={cn("h-full antialiased", sans.variable, mono.variable)}
+    >
+      <body className="min-h-full flex flex-col leading-relaxed font-sans">
         {children}
       </body>
     </html>

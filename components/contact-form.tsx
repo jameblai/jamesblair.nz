@@ -55,7 +55,7 @@ export function ContactForm() {
       </FormField>
 
       <Button type="submit" disabled={pending} className="self-start">
-        Send
+        Send Message
       </Button>
     </form>
   );

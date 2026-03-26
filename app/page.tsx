@@ -20,28 +20,20 @@ export default function Home() {
       <main className="flex flex-col gap-8 py-8">
         <section>
           <p>
-            Kia ora! I'm a first-year CS student at The University of Auckland.
+            Kia ora! I'm a first-year Computer Science student at The University
+            of Auckland.
           </p>
         </section>
 
         <section className="flex flex-col gap-4">
           <Heading tag="h2">Skills</Heading>
 
-          <p>
-            <span className="font-bold">Languages:</span> JavaScript,
-            TypeScript, Kotlin, Python, C++, C#
-          </p>
-          <p>
-            <span className="font-bold">Web:</span> React, Next.js, Astro, Hono,
-            Tailwind CSS
-          </p>
-          <p>
-            <span className="font-bold">Services:</span> Sanity CMS, Stripe,
-            Amazon SES, Cloudflare
-          </p>
-          <p>
-            <span className="font-bold">Tooling:</span> Git, Docker, Linux
-          </p>
+          <ul className="list-disc marker:content-['-\0020'] marker:text-subtle">
+            <li>JavaScript, TypeScript, Kotlin, Python, C++, C#</li>
+            <li>React, Next.js, Astro, Hono, Tailwind CSS</li>
+            <li>Sanity CMS, Stripe, Amazon SES, Cloudflare</li>
+            <li>Git, Docker, Linux</li>
+          </ul>
         </section>
 
         <section className="flex flex-col gap-4">
@@ -60,7 +52,7 @@ export default function Home() {
 
 export function Header() {
   return (
-    <header className="flex justify-between items-center gap-8">
+    <header className="flex justify-between gap-4 md:gap-8 md:items-start flex-col md:flex-row">
       <Heading tag="h1">James Blair</Heading>
       <HeaderLinks />
     </header>

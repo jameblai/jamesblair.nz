@@ -18,7 +18,7 @@ export function FormField({ name, label, error, children }: FormFieldProps) {
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={name}>{label}</label>
+      <Label htmlFor={name}>{label}</Label>
       {children({
         id: name,
         name,
@@ -32,6 +32,13 @@ export function FormField({ name, label, error, children }: FormFieldProps) {
       )}
     </div>
   );
+}
+
+export function Label({
+  className,
+  ...props
+}: ComponentPropsWithoutRef<"label">) {
+  return <label className={cn("font-medium", className)} {...props} />;
 }
 
 export function Input({

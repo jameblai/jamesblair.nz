@@ -16,7 +16,10 @@ export function Link({
       {...props}
       href={href}
       target={target}
-      className={cn("inline-flex items-center gap-2 text-violet", className)}
+      className={cn(
+        "inline-flex items-center gap-2 text-violet font-medium font-mono",
+        className,
+      )}
     >
       {props.children}
       {external && <ExternalLinkIcon className="size-4" />}
