@@ -65,7 +65,7 @@ export default function Home() {
 export function Header() {
   return (
     <header className="flex justify-between gap-4 md:gap-8 md:items-start flex-col md:flex-row">
-      <Heading tag="h1" className="flex items-center gap-1.5">
+      <Heading tag="h1">
         <span>James Blair</span>
         <span
           aria-hidden="true"
