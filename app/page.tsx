@@ -28,11 +28,23 @@ export default function Home() {
         <section className="flex flex-col gap-4">
           <Heading tag="h2">Skills</Heading>
 
-          <ul className="list-disc marker:content-['-\0020'] marker:text-subtle">
-            <li>JavaScript, TypeScript, Kotlin, Python, C++, C#</li>
-            <li>React, Next.js, Astro, Hono, Tailwind CSS</li>
-            <li>Sanity CMS, Stripe, Amazon SES, Cloudflare</li>
-            <li>Git, Docker, Linux</li>
+          <ul>
+            <li>
+              <span className="text-subtle font-mono">-</span> JavaScript,
+              TypeScript, Kotlin, Python, C++, C#
+            </li>
+            <li>
+              <span className="text-subtle font-mono">-</span> React, Next.js,
+              Astro, Hono, Tailwind CSS
+            </li>
+            <li>
+              <span className="text-subtle font-mono">-</span> Sanity CMS,
+              Stripe, Amazon SES, Cloudflare
+            </li>
+            <li>
+              <span className="text-subtle font-mono">-</span> Git, Docker,
+              Linux
+            </li>
           </ul>
         </section>
 
