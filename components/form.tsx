@@ -38,7 +38,12 @@ export function Label({
   className,
   ...props
 }: ComponentPropsWithoutRef<"label">) {
-  return <label className={cn("font-medium", className)} {...props} />;
+  return (
+    <label
+      className={cn("font-medium font-mono text-sky", className)}
+      {...props}
+    />
+  );
 }
 
 export function Input({
