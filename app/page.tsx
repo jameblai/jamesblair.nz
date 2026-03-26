@@ -14,7 +14,7 @@ interface Project {
 
 export default function Home() {
   return (
-    <div className="container mx-auto p-8 flex flex-col">
+    <div className="container mx-auto max-w-4xl p-8 flex flex-col">
       <Header />
 
       <main className="flex flex-col gap-8 py-8">
@@ -146,7 +146,7 @@ function Projects() {
   ];
 
   return (
-    <div className="grid gap-4 max-w-2xl">
+    <div className="grid gap-4 max-w-4xl">
       {projects.map((project) => (
         <ProjectCard key={project.name} project={project} />
       ))}

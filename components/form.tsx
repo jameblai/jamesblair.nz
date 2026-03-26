@@ -56,7 +56,7 @@ export function TextArea({
   return (
     <textarea
       className={cn(
-        "border border-dashed border-subtle px-2.5 py-2 min-h-32",
+        "border border-dashed border-subtle px-2.5 py-2 min-h-48",
         className,
       )}
       {...props}

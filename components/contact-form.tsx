@@ -14,7 +14,7 @@ export function ContactForm() {
   const errors = state.status === "error" ? state.errors : undefined;
 
   return (
-    <form className="flex flex-col gap-4 max-w-2xl" action={formAction}>
+    <form className="flex flex-col gap-4 max-w-4xl" action={formAction}>
       {state.status === "success" && (
         <div className="border border-sky border-dashed bg-sky/20 p-4">
           Thank you for your message! :)
