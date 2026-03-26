@@ -1,13 +1,12 @@
-import { ContactFormValues } from "@/lib/contact-form";
 import {
   Body,
-  Container,
   Head,
   Html,
   Section,
   Tailwind,
   Text,
 } from "@react-email/components";
+import type { ContactFormValues } from "@/lib/contact-form";
 
 export default function ContactFormEmail({
   name,

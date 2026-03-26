@@ -39,6 +39,7 @@ export function Label({
   ...props
 }: ComponentPropsWithoutRef<"label">) {
   return (
+    // biome-ignore lint/a11y/noLabelWithoutControl: htmlFor is expected to be passed through props
     <label
       className={cn("font-medium font-mono text-sky", className)}
       {...props}

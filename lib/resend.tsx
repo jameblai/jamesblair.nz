@@ -1,6 +1,6 @@
-import { ContactFormValues } from "@/lib/contact-form";
 import { Resend } from "resend";
 import ContactFormEmail from "@/emails/contact-form";
+import type { ContactFormValues } from "@/lib/contact-form";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

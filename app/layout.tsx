@@ -1,16 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  IBM_Plex_Mono,
-  IBM_Plex_Sans,
-  Inter,
-  JetBrains_Mono,
-  Lato,
-  Lilex,
-  Nunito,
-  Open_Sans,
-} from "next/font/google";
+import { IBM_Plex_Sans, Lilex } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/cn";
 

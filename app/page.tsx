@@ -65,7 +65,15 @@ export default function Home() {
 export function Header() {
   return (
     <header className="flex justify-between gap-4 md:gap-8 md:items-start flex-col md:flex-row">
-      <Heading tag="h1">James Blair</Heading>
+      <Heading tag="h1" className="flex items-center gap-1.5">
+        <span>James Blair</span>
+        <span
+          aria-hidden="true"
+          className="inline-block bg-text align-baseline vim-cursor whitespace-pre"
+        >
+          {" "}
+        </span>
+      </Heading>
       <HeaderLinks />
     </header>
   );
