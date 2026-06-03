@@ -1,33 +1,55 @@
 import type { ContactFormValues } from "@/lib/contact-form";
 
-const DISCORD_MESSAGE_LIMIT = 2000;
+const DISCORD_EMBED_DESCRIPTION_LIMIT = 4096;
+const TRUNCATION_SUFFIX = "\n\n[message truncated]";
 
-function formatContactMessage(values: ContactFormValues) {
-  const submittedAt = new Date().toISOString();
-  const lines = [
-    "## New website contact form submission",
-    `**Name:** ${values.name}`,
-    `**Email:** ${values.email}`,
-    `**Submitted:** ${submittedAt}`,
-    "",
-    "**Message:**",
-    values.message,
-  ];
-
-  const message = lines.join("\n");
-
-  if (message.length <= DISCORD_MESSAGE_LIMIT) {
+function truncateDiscordEmbedDescription(message: string) {
+  if (message.length <= DISCORD_EMBED_DESCRIPTION_LIMIT) {
     return message;
   }
 
-  return `${message.slice(0, DISCORD_MESSAGE_LIMIT - 20)}\n\n[message truncated]`;
+  return `${message.slice(
+    0,
+    DISCORD_EMBED_DESCRIPTION_LIMIT - TRUNCATION_SUFFIX.length,
+  )}${TRUNCATION_SUFFIX}`;
+}
+
+function formatContactEmbed(values: ContactFormValues) {
+  const submittedAt = new Date();
+
+  return {
+    title: "New website contact message",
+    description: truncateDiscordEmbedDescription(values.message),
+    color: 0x3b82f6,
+    fields: [
+      {
+        name: "Name",
+        value: values.name,
+        inline: true,
+      },
+      {
+        name: "Email",
+        value: values.email,
+        inline: true,
+      },
+      {
+        name: "Type",
+        value: "Contact form",
+        inline: true,
+      },
+    ],
+    footer: {
+      text: "jamesblair.nz contact form",
+    },
+    timestamp: submittedAt.toISOString(),
+  };
 }
 
 export async function sendContactFormSubmission(values: ContactFormValues) {
-  const webhookUrl = process.env.DISCORD_CONTACT_WEBHOOK_URL;
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
   if (!webhookUrl) {
-    throw new Error("DISCORD_CONTACT_WEBHOOK_URL is not configured.");
+    throw new Error("DISCORD_WEBHOOK_URL is not configured.");
   }
 
   const response = await fetch(webhookUrl, {
@@ -39,7 +61,8 @@ export async function sendContactFormSubmission(values: ContactFormValues) {
       allowed_mentions: {
         parse: [],
       },
-      content: formatContactMessage(values),
+      content: "📬 New contact message from jamesblair.nz",
+      embeds: [formatContactEmbed(values)],
     }),
   });
 
