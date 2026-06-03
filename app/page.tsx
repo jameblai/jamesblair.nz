@@ -209,7 +209,7 @@ function Projects() {
 function Hackathons() {
   const hackathons: Hackathon[] = [
     {
-      event: "DEVS x SESA Beginner Hackathon 2026",
+      event: "DEVS x SESA Hackathon 2026",
       team: "First Try",
       result: "3rd place",
       project: "Intergalactic Space Agency Helpdesk",
@@ -238,7 +238,7 @@ function Hackathons() {
       tech: ["TypeScript", "Hono", "TanStack Router", "SQLite", "Solidity"],
     },
     {
-      event: "GDGC Hackathon",
+      event: "GDGC Hackathon 2026",
       team: "Picasa",
       result: "Most Promising award",
       project: "Repstation",
