@@ -226,7 +226,7 @@ function Hackathons() {
     {
       event: "WEB3UOA Hackathon 2026",
       team: "No Clue",
-      project: "Web3 Bonus Distribution App",
+      project: "Bonus Distribution",
       description:
         "Created an employer dashboard for calculating and distributing employee bonuses on Base Sepolia. It pairs wallet-based onboarding, AI-assisted bonus summaries and payout history with a Foundry smart contract that transfers dNZD bonuses to employees.",
       links: [
@@ -240,6 +240,7 @@ function Hackathons() {
     {
       event: "GDGC Hackathon",
       team: "Picasa",
+      result: "Most Promising award",
       project: "Repstation",
       description:
         "Prototyped a reputation-backed marketplace for sharing items and proving trust. The app includes user accounts, marketplace listings, claims and attestations, skill proof flows, uploads, chat features and a trust-scoring model built around community verification.",
