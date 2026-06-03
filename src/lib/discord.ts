@@ -41,7 +41,7 @@ function formatContactEmbed(values: ContactFormValues) {
 }
 
 export async function sendContactFormSubmission(values: ContactFormValues) {
-  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+  const webhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
 
   if (!webhookUrl) {
     throw new Error("DISCORD_WEBHOOK_URL is not configured.");
