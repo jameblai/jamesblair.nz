@@ -13,6 +13,19 @@ interface Project {
   tech?: string[];
 }
 
+interface Hackathon {
+  event: string;
+  team?: string;
+  result?: string;
+  project: string;
+  description: string;
+  links: {
+    label: string;
+    href: string;
+  }[];
+  tech: string[];
+}
+
 export default function Home() {
   return (
     <div className="container mx-auto max-w-4xl p-8 flex flex-col">
@@ -52,6 +65,11 @@ export default function Home() {
         <section className="flex flex-col gap-4">
           <Heading tag="h2">Projects</Heading>
           <Projects />
+        </section>
+
+        <section className="flex flex-col gap-4">
+          <Heading tag="h2">Hackathons</Heading>
+          <Hackathons />
         </section>
 
         <section className="flex flex-col gap-4">
@@ -185,6 +203,102 @@ function Projects() {
         <ProjectCard key={project.name} project={project} />
       ))}
     </div>
+  );
+}
+
+function Hackathons() {
+  const hackathons: Hackathon[] = [
+    {
+      event: "DEVS x SESA Beginner Hackathon 2026",
+      team: "First Try",
+      result: "3rd place",
+      project: "Intergalactic Space Agency Helpdesk",
+      description:
+        "Built a fast-paced helpdesk game where players answer alien support tickets against the clock using an in-app reference manual. The app combines a Next.js game UI, FastAPI ticket generation, and an Express/OpenRouter semantic answer checker.",
+      links: [
+        {
+          label: "GitHub",
+          href: "https://github.com/devsuoa/devs-sesa-beginner-hackathon-2026-first-try",
+        },
+      ],
+      tech: ["TypeScript", "Next.js", "Express", "FastAPI", "OpenRouter"],
+    },
+    {
+      event: "WEB3UOA Hackathon 2026",
+      project: "Web3 Bonus Distribution App",
+      description:
+        "Created an employer dashboard for calculating and distributing employee bonuses on Base Sepolia. It pairs wallet-based onboarding, AI-assisted bonus summaries and payout history with a Foundry smart contract that transfers dNZD bonuses to employees.",
+      links: [
+        {
+          label: "GitHub",
+          href: "https://github.com/jameblai/web3-hackathon",
+        },
+      ],
+      tech: ["TypeScript", "Hono", "TanStack Router", "SQLite", "Solidity"],
+    },
+    {
+      event: "GDGC Hackathon",
+      project: "Repstation",
+      description:
+        "Prototyped a reputation-backed marketplace for sharing items and proving trust. The app includes user accounts, marketplace listings, claims and attestations, skill proof flows, uploads, chat features and a trust-scoring model built around community verification.",
+      links: [
+        {
+          label: "GitHub",
+          href: "https://github.com/jameblai/gdgc-hackathon",
+        },
+      ],
+      tech: ["TypeScript", "Next.js", "Drizzle ORM", "Postgres", "UploadThing"],
+    },
+  ];
+
+  return (
+    <div className="grid gap-4 max-w-4xl">
+      {hackathons.map((hackathon) => (
+        <HackathonCard key={hackathon.event} hackathon={hackathon} />
+      ))}
+    </div>
+  );
+}
+
+function HackathonCard({ hackathon }: { hackathon: Hackathon }) {
+  return (
+    <Card>
+      <div className="flex flex-col gap-1">
+        <Heading tag="h3" hashes={0}>
+          {hackathon.event}
+        </Heading>
+        <p className="text-subtle">
+          {[
+            hackathon.team ? `Team ${hackathon.team}` : undefined,
+            hackathon.result,
+            hackathon.project,
+          ]
+            .filter(Boolean)
+            .join(" · ")}
+        </p>
+      </div>
+
+      <p>{hackathon.description}</p>
+
+      <ul className="flex flex-wrap gap-2">
+        {hackathon.tech.map((item) => (
+          <li
+            key={item}
+            className="px-2 py-1 border text-salmon border-salmon font-mono border-dashed text-sm"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <div className="flex gap-4 mt-auto">
+        {hackathon.links.map((link) => (
+          <Link key={link.label} href={link.href}>
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </Card>
   );
 }
 
