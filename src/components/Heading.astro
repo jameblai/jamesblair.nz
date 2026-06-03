@@ -1,0 +1,28 @@
+---
+interface Props {
+  tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  class?: string;
+}
+
+const { tag: Tag, class: className } = Astro.props;
+const prefix = "#".repeat(Number(Tag.charAt(1)));
+const sizes = {
+  h1: "text-2xl",
+  h2: "text-xl",
+  h3: "text-lg",
+  h4: "text-base",
+  h5: "text-base",
+  h6: "text-base",
+};
+---
+
+<Tag
+  class:list={[
+    "text-sky font-mono leading-none font-bold",
+    sizes[Tag],
+    className,
+  ]}
+>
+  <span class="text-subtle">{prefix}</span>
+  <slot />
+</Tag>

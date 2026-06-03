@@ -9,7 +9,7 @@ export const contactFormSchema = z.object({
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export type ContactFormErrors = Partial<
-  Record<keyof ContactFormValues, string[]>
+  Record<keyof ContactFormValues | "form", string[]>
 >;
 
 export type ContactFormState =

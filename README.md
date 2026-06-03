@@ -1,17 +1,22 @@
 # jamesblair.nz
 
+Personal site built with Astro, React islands, Tailwind CSS, and deployed on Vercel.
+
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:4321](http://localhost:4321) with your browser.
+
+## Scripts
+
+- `pnpm dev` - start the Astro dev server
+- `pnpm build` - type-check and build for production
+- `pnpm preview` - preview the production build locally
+- `pnpm lint` - run ESLint
+- `pnpm format` - format with Prettier
