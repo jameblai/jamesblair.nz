@@ -7,7 +7,7 @@ import {
   defaultContactFormValues,
   getContactFormValues,
 } from "@/lib/contact-form";
-import { sendContactFormSubmission } from "@/lib/resend";
+import { sendContactFormSubmission } from "@/lib/discord";
 
 export async function submitContactForm(
   _previousState: ContactFormState,
@@ -25,10 +25,22 @@ export async function submitContactForm(
     };
   }
 
-  await sendContactFormSubmission(result.data);
+  try {
+    await sendContactFormSubmission(result.data);
 
-  return {
-    status: "success",
-    values: defaultContactFormValues,
-  };
+    return {
+      status: "success",
+      values: defaultContactFormValues,
+    };
+  } catch {
+    return {
+      status: "error",
+      errors: {
+        message: [
+          "Sorry, your message could not be sent. Please try again later.",
+        ],
+      },
+      values,
+    };
+  }
 }
