@@ -32,14 +32,9 @@ function formatContactEmbed(values: ContactFormValues) {
         value: values.email,
         inline: true,
       },
-      {
-        name: "Type",
-        value: "Contact form",
-        inline: true,
-      },
     ],
     footer: {
-      text: "jamesblair.nz contact form",
+      text: "jamesblair.nz",
     },
     timestamp: submittedAt.toISOString(),
   };
