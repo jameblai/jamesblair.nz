@@ -18,7 +18,7 @@ function formatContactEmbed(values: ContactFormValues) {
   const submittedAt = new Date();
 
   return {
-    title: "New contact message",
+    title: "Message",
     description: truncateDiscordEmbedDescription(values.message),
     color: 0x3b82f6,
     fields: [
