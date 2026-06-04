@@ -109,10 +109,10 @@ export const GET: APIRoute = async ({ url }) => {
             style: {
               display: "flex",
               flexDirection: "column",
-              gap: "8px",
+              gap: "16px",
               flex: 1,
               border: `1px dashed ${colors.subtle}`,
-              padding: "16px",
+              padding: "32px",
             },
             children: [
               {
@@ -124,7 +124,7 @@ export const GET: APIRoute = async ({ url }) => {
                     alignItems: "center",
                     color: colors.violet,
                     fontFamily: "Lilex",
-                    fontSize: "18px",
+                    fontSize: "36px",
                     letterSpacing: "0.02em",
                   },
                   children: "jamesblair.nz",
@@ -136,7 +136,7 @@ export const GET: APIRoute = async ({ url }) => {
                   style: {
                     display: "flex",
                     flexDirection: "column",
-                    gap: "32px",
+                    gap: "64px",
                   },
                   children: [
                     {
@@ -145,10 +145,10 @@ export const GET: APIRoute = async ({ url }) => {
                         style: {
                           display: "flex",
                           alignItems: "center",
-                          gap: "8px",
+                          gap: "16px",
                           color: colors.sky,
                           fontFamily: "Lilex",
-                          fontSize: "24px",
+                          fontSize: "48px",
                           fontWeight: 700,
                           lineHeight: 1,
                         },
@@ -158,8 +158,8 @@ export const GET: APIRoute = async ({ url }) => {
                             type: "span",
                             props: {
                               style: {
-                                width: "16px",
-                                height: "24px",
+                                width: "32px",
+                                height: "48px",
                                 backgroundColor: colors.text,
                                 display: "flex",
                               },
@@ -173,7 +173,7 @@ export const GET: APIRoute = async ({ url }) => {
                       props: {
                         style: {
                           color: colors.subtle,
-                          fontSize: "16px",
+                          fontSize: "32px",
                           lineHeight: 1.625,
                           maxWidth: "896px",
                         },
@@ -188,7 +188,7 @@ export const GET: APIRoute = async ({ url }) => {
                 props: {
                   style: {
                     display: "flex",
-                    gap: "8px",
+                    gap: "16px",
                     flexWrap: "wrap",
                     marginTop: "auto",
                   },
@@ -206,8 +206,8 @@ export const GET: APIRoute = async ({ url }) => {
                         border: `1px dashed ${colors.salmon}`,
                         color: colors.salmon,
                         fontFamily: "Lilex",
-                        fontSize: "14px",
-                        padding: "4px 8px",
+                        fontSize: "28px",
+                        padding: "8px 16px",
                       },
                       children: item,
                     },
@@ -226,7 +226,7 @@ export const GET: APIRoute = async ({ url }) => {
               alignItems: "center",
               color: colors.subtle,
               fontFamily: "Lilex",
-              fontSize: "16px",
+              fontSize: "32px",
               paddingTop: "32px",
             },
             children: [
