@@ -4,19 +4,44 @@ import satori, { type SatoriOptions } from "satori";
 
 import { ibmPlexSansRegular, lilexBold, lilexRegular } from "@/lib/og-fonts";
 import { site } from "@/lib/site";
+import globalCss from "@/styles/global.css?raw";
 
 const WIDTH = 1200;
 const HEIGHT = 630;
 
-const colors = {
-  base: "#151726",
-  interface: "#1c1e2d",
-  overlay: "#232534",
-  subtle: "#8d8f9e",
-  text: "#dee0ef",
-  salmon: "#f8d2c9",
-  mint: "#9ccfd8",
-} as const;
+const colorTokenNames = [
+  "base",
+  "interface",
+  "overlay",
+  "subtle",
+  "text",
+  "salmon",
+  "sky",
+] as const;
+
+type ColorTokenName = (typeof colorTokenNames)[number];
+
+type ColorTokens = Record<ColorTokenName, string>;
+
+const parseColorTokens = (css: string): ColorTokens => {
+  const tokens = Object.fromEntries(
+    colorTokenNames.map((name) => {
+      const match = css.match(
+        new RegExp(`--color-${name}:\\s*(#[0-9a-fA-F]{3,8})\\s*;`),
+      );
+
+      if (!match) {
+        throw new Error(`Missing --color-${name} token in global.css`);
+      }
+
+      return [name, match[1]];
+    }),
+  );
+
+  return tokens as ColorTokens;
+};
+
+const colors = parseColorTokens(globalCss);
 
 const fonts: SatoriOptions["fonts"] = [
   {
@@ -126,7 +151,7 @@ export const GET: APIRoute = async ({ url }) => {
                           display: "flex",
                           alignItems: "center",
                           gap: "10px",
-                          color: colors.mint,
+                          color: colors.sky,
                           fontFamily: "Lilex",
                           fontSize: "76px",
                           fontWeight: 700,
@@ -215,7 +240,7 @@ export const GET: APIRoute = async ({ url }) => {
                 type: "div",
                 props: {
                   style: {
-                    color: colors.mint,
+                    color: colors.sky,
                   },
                   children: site.url.replace("https://", ""),
                 },
