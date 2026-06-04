@@ -170,7 +170,7 @@ const hackathons: Hackathon[] = [
       <Heading tag="h1">
         <span>James Blair</span><span
           aria-hidden="true"
-          class="bg-text vim-cursor inline-block align-baseline whitespace-pre"
+          class="bg-fg vim-cursor inline-block align-baseline whitespace-pre"
           >{" "}</span
         >
       </Heading>
@@ -193,19 +193,19 @@ const hackathons: Hackathon[] = [
 
         <ul>
           <li>
-            <span class="text-subtle font-mono">-</span> JavaScript, TypeScript, Kotlin,
-            Python, C++, C#
+            <span class="text-fg-muted font-mono">-</span> JavaScript, TypeScript,
+            Kotlin, Python, C++, C#
           </li>
           <li>
-            <span class="text-subtle font-mono">-</span> React, Next.js, Astro, Hono,
-            Tailwind CSS
+            <span class="text-fg-muted font-mono">-</span> React, Next.js, Astro,
+            Hono, Tailwind CSS
           </li>
           <li>
-            <span class="text-subtle font-mono">-</span> Sanity CMS, Stripe, Amazon
+            <span class="text-fg-muted font-mono">-</span> Sanity CMS, Stripe, Amazon
             SES, Cloudflare
           </li>
           <li>
-            <span class="text-subtle font-mono">-</span> Git, Docker, Linux
+            <span class="text-fg-muted font-mono">-</span> Git, Docker, Linux
           </li>
         </ul>
       </section>
@@ -222,7 +222,7 @@ const hackathons: Hackathon[] = [
                 {!!project.tech?.length && (
                   <ul class="flex flex-wrap gap-2">
                     {project.tech.map((item) => (
-                      <li class="border-salmon text-salmon border border-dashed px-2 py-1 font-mono text-sm">
+                      <li class="border-string text-string border border-dashed px-2 py-1 font-mono text-sm">
                         {item}
                       </li>
                     ))}
@@ -250,7 +250,7 @@ const hackathons: Hackathon[] = [
               <Card>
                 <div class="flex flex-col gap-1">
                   <Heading tag="h3">{hackathon.event}</Heading>
-                  <p class="text-subtle">
+                  <p class="text-fg-muted">
                     {[
                       hackathon.team ? `Team ${hackathon.team}` : undefined,
                       hackathon.result,
@@ -265,7 +265,7 @@ const hackathons: Hackathon[] = [
 
                 <ul class="flex flex-wrap gap-2">
                   {hackathon.tech.map((item) => (
-                    <li class="border-salmon text-salmon border border-dashed px-2 py-1 font-mono text-sm">
+                    <li class="border-string text-string border border-dashed px-2 py-1 font-mono text-sm">
                       {item}
                     </li>
                   ))}

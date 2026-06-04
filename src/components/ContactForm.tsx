@@ -13,7 +13,7 @@ function Label({
 }: React.ComponentPropsWithoutRef<"label">) {
   return (
     <label
-      className={cn("text-sky font-mono font-medium", className)}
+      className={cn("text-accent font-mono font-medium", className)}
       {...props}
     />
   );
@@ -26,7 +26,7 @@ function Input({
   return (
     <input
       className={cn(
-        "border-subtle border border-dashed px-2.5 py-2",
+        "border-border border border-dashed px-2.5 py-2",
         className,
       )}
       {...props}
@@ -41,7 +41,7 @@ function TextArea({
   return (
     <textarea
       className={cn(
-        "border-subtle min-h-48 border border-dashed px-2.5 py-2",
+        "border-border min-h-48 border border-dashed px-2.5 py-2",
         className,
       )}
       {...props}
@@ -74,7 +74,7 @@ function FormField({ name, label, error, children }: FormFieldProps) {
         "aria-errormessage": error?.length ? errorId : undefined,
       })}
       {error?.[0] && (
-        <span id={errorId} className="text-coral">
+        <span id={errorId} className="text-error">
           {error[0]}
         </span>
       )}
@@ -166,12 +166,12 @@ export function ContactForm() {
   return (
     <form className="flex max-w-4xl flex-col gap-4" onSubmit={submit}>
       {state.status === "success" && (
-        <div className="border-sky bg-sky/20 border border-dashed p-4">
+        <div className="border-accent bg-accent/20 border border-dashed p-4">
           Thank you for your message! :)
         </div>
       )}
       {errors?.form?.[0] && (
-        <div className="border-coral bg-coral/20 border border-dashed p-4">
+        <div className="border-error bg-error/20 border border-dashed p-4">
           {errors.form[0]}
         </div>
       )}

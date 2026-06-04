@@ -6,27 +6,40 @@
   --font-mono:
     "Lilex", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-  --color-base: #101010;
-  --color-interface: #1a1a1a;
-  --color-overlay: #282828;
-  --color-muted: #7e7e7e;
-  --color-subtle: #a0a0a0;
-  --color-text: #ffffff;
-  --color-hightlight-low: #1a1a1a;
-  --color-highlight-low: #1a1a1a;
-  --color-highlight-medium: #232323;
-  --color-highlight-high: #282828;
-  --color-coral: #ffc799;
-  --color-salmon: #ffc799;
-  --color-fennel: #7e7e7e;
-  --color-mint: #99ffe4;
-  --color-violet: #ffc799;
-  --color-sky: #99ffe4;
+  --color-bg: #101010;
+  --color-bg-elevated: #1a1a1a;
+  --color-bg-hover: #282828;
+  --color-bg-selected: #232323;
+  --color-fg: #ffffff;
+  --color-fg-muted: #a0a0a0;
+  --color-fg-dim: #7e7e7e;
+  --color-comment: #5c5c5c;
+  --color-accent: #ffc799;
+  --color-string: #99ffe4;
+  --color-error: #ff8080;
+  --color-border: #282828;
+
+  --color-base: var(--color-bg);
+  --color-interface: var(--color-bg-elevated);
+  --color-overlay: var(--color-bg-hover);
+  --color-muted: var(--color-fg-dim);
+  --color-subtle: var(--color-fg-muted);
+  --color-text: var(--color-fg);
+  --color-hightlight-low: var(--color-bg-elevated);
+  --color-highlight-low: var(--color-bg-elevated);
+  --color-highlight-medium: var(--color-bg-selected);
+  --color-highlight-high: var(--color-bg-hover);
+  --color-coral: var(--color-error);
+  --color-salmon: var(--color-string);
+  --color-fennel: var(--color-fg-dim);
+  --color-mint: var(--color-string);
+  --color-violet: var(--color-accent);
+  --color-sky: var(--color-accent);
 }
 
 body {
-  background-color: var(--color-base);
-  color: var(--color-text);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
 }
 
 @keyframes vim-cursor-blink {
