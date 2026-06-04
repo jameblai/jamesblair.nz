@@ -13,7 +13,7 @@ const external = href.startsWith("http");
   target={external ? "_blank" : undefined}
   rel={external ? "noreferrer" : undefined}
   class:list={[
-    "text-violet inline-flex items-center gap-2 font-mono font-medium",
+    "group text-accent hover:text-string inline-flex items-center gap-2 font-mono font-medium transition-colors duration-200",
     className,
   ]}
 >
@@ -29,7 +29,7 @@ const external = href.startsWith("http");
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="size-4"
+        class="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
       >
         <path d="M15 3h6v6" />
         <path d="M10 14 21 3" />

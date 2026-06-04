@@ -6,27 +6,45 @@
   --font-mono:
     "Lilex", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-  --color-base: #151726;
-  --color-interface: #1c1e2d;
-  --color-overlay: #232534;
-  --color-muted: #6b6d7c;
-  --color-subtle: #8d8f9e;
-  --color-text: #dee0ef;
-  --color-hightlight-low: #1f212f;
-  --color-highlight-low: #1f212f;
-  --color-highlight-medium: #3e404f;
-  --color-highlight-high: #4f5162;
-  --color-coral: #ee8679;
-  --color-salmon: #f8d2c9;
-  --color-fennel: #5ba2d0;
-  --color-mint: #9ccfd8;
-  --color-violet: #a78bfa;
-  --color-sky: #94b8ff;
+  --color-bg: #101010;
+  --color-bg-elevated: #1a1a1a;
+  --color-bg-hover: #282828;
+  --color-bg-selected: #232323;
+  --color-fg: #ffffff;
+  --color-fg-muted: #a0a0a0;
+  --color-fg-dim: #7e7e7e;
+  --color-comment: #5c5c5c;
+  --color-accent: #ffc799;
+  --color-string: #99ffe4;
+  --color-error: #ff8080;
+  --color-border: #282828;
+
+  --color-base: var(--color-bg);
+  --color-interface: var(--color-bg-elevated);
+  --color-overlay: var(--color-bg-hover);
+  --color-muted: var(--color-fg-dim);
+  --color-subtle: var(--color-fg-muted);
+  --color-text: var(--color-fg);
+  --color-hightlight-low: var(--color-bg-elevated);
+  --color-highlight-low: var(--color-bg-elevated);
+  --color-highlight-medium: var(--color-bg-selected);
+  --color-highlight-high: var(--color-bg-hover);
+  --color-coral: var(--color-error);
+  --color-salmon: var(--color-string);
+  --color-fennel: var(--color-fg-dim);
+  --color-mint: var(--color-string);
+  --color-violet: var(--color-accent);
+  --color-sky: var(--color-accent);
 }
 
 body {
-  background-color: var(--color-base);
-  color: var(--color-text);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  color: var(--color-fg);
 }
 
 @keyframes vim-cursor-blink {
@@ -43,4 +61,15 @@ body {
 
 .vim-cursor {
   animation: vim-cursor-blink 1s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
 }

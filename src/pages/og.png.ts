@@ -10,14 +10,12 @@ const WIDTH = 1200;
 const HEIGHT = 630;
 
 const colorTokenNames = [
-  "base",
-  "interface",
-  "overlay",
-  "subtle",
-  "text",
-  "salmon",
-  "sky",
-  "violet",
+  "bg",
+  "bg-hover",
+  "fg",
+  "fg-muted",
+  "accent",
+  "string",
 ] as const;
 
 type ColorTokenName = (typeof colorTokenNames)[number];
@@ -97,8 +95,8 @@ export const GET: APIRoute = async ({ url }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        backgroundColor: colors.base,
-        color: colors.text,
+        backgroundColor: colors.bg,
+        color: colors.fg,
         padding: "64px",
         fontFamily: "IBM Plex Sans",
       },
@@ -111,7 +109,7 @@ export const GET: APIRoute = async ({ url }) => {
               flexDirection: "column",
               gap: "32px",
               flex: 1,
-              border: `1px dashed ${colors.subtle}`,
+              border: `1px dashed ${colors["bg-hover"]}`,
               padding: "48px",
             },
             children: [
@@ -122,7 +120,7 @@ export const GET: APIRoute = async ({ url }) => {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    color: colors.violet,
+                    color: colors.accent,
                     fontFamily: "Lilex",
                     fontSize: "30px",
                     letterSpacing: "0.02em",
@@ -146,7 +144,7 @@ export const GET: APIRoute = async ({ url }) => {
                           display: "flex",
                           alignItems: "center",
                           gap: "8px",
-                          color: colors.sky,
+                          color: colors.accent,
                           fontFamily: "Lilex",
                           fontSize: "72px",
                           fontWeight: 700,
@@ -160,7 +158,7 @@ export const GET: APIRoute = async ({ url }) => {
                               style: {
                                 width: "32px",
                                 height: "56px",
-                                backgroundColor: colors.text,
+                                backgroundColor: colors.fg,
                                 display: "flex",
                               },
                             },
@@ -172,7 +170,7 @@ export const GET: APIRoute = async ({ url }) => {
                       type: "div",
                       props: {
                         style: {
-                          color: colors.subtle,
+                          color: colors["fg-muted"],
                           fontSize: "36px",
                           lineHeight: 1.625,
                           maxWidth: "896px",
@@ -203,8 +201,8 @@ export const GET: APIRoute = async ({ url }) => {
                     type: "div",
                     props: {
                       style: {
-                        border: `1px dashed ${colors.salmon}`,
-                        color: colors.salmon,
+                        border: `1px dashed ${colors.string}`,
+                        color: colors.string,
                         fontFamily: "Lilex",
                         fontSize: "24px",
                         padding: "8px 16px",
@@ -224,7 +222,7 @@ export const GET: APIRoute = async ({ url }) => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              color: colors.subtle,
+              color: colors["fg-muted"],
               fontFamily: "Lilex",
               fontSize: "24px",
               paddingTop: "24px",
@@ -235,7 +233,7 @@ export const GET: APIRoute = async ({ url }) => {
                 type: "div",
                 props: {
                   style: {
-                    color: colors.violet,
+                    color: colors.accent,
                   },
                   children: site.url.replace("https://", ""),
                 },
