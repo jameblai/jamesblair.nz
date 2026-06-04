@@ -26,7 +26,7 @@ function Input({
   return (
     <input
       className={cn(
-        "border-border bg-bg-elevated border px-2.5 py-2",
+        "border-border bg-bg-elevated placeholder:text-fg-dim border px-2.5 py-2",
         className,
       )}
       {...props}
@@ -41,7 +41,7 @@ function TextArea({
   return (
     <textarea
       className={cn(
-        "border-border bg-bg-elevated min-h-48 border px-2.5 py-2",
+        "border-border bg-bg-elevated placeholder:text-fg-dim min-h-48 border px-2.5 py-2",
         className,
       )}
       {...props}
@@ -183,6 +183,7 @@ export function ContactForm() {
               {...fieldProps}
               value={state.values.name}
               onChange={updateValue}
+              placeholder="Stelle"
               className="w-full"
             />
           )}
@@ -195,6 +196,7 @@ export function ContactForm() {
               value={state.values.email}
               onChange={updateValue}
               type="email"
+              placeholder="stelle@astral.express"
               className="w-full"
             />
           )}
@@ -207,6 +209,7 @@ export function ContactForm() {
             {...fieldProps}
             value={state.values.message}
             onChange={updateValue}
+            placeholder="The Express needs a full-stack dev for a side quest."
             className="w-full"
           />
         )}
