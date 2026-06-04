@@ -1,9 +1,8 @@
-import { readFile } from "node:fs/promises";
-
 import { Resvg } from "@resvg/resvg-js";
 import type { APIRoute } from "astro";
 import satori, { type SatoriOptions } from "satori";
 
+import { ibmPlexSansBold, ibmPlexSansRegular } from "@/lib/og-fonts";
 import { site } from "@/lib/site";
 
 const WIDTH = 1200;
@@ -19,32 +18,20 @@ const colors = {
   mint: "#9ccfd8",
 } as const;
 
-const fontRegularUrl = new URL(
-  "../../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff",
-  import.meta.url,
-);
-const fontBoldUrl = new URL(
-  "../../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700-normal.woff",
-  import.meta.url,
-);
-
-const fontsPromise: Promise<SatoriOptions["fonts"]> = Promise.all([
-  readFile(fontRegularUrl),
-  readFile(fontBoldUrl),
-]).then(([regular, bold]) => [
+const fonts: SatoriOptions["fonts"] = [
   {
     name: "IBM Plex Sans",
-    data: regular,
+    data: ibmPlexSansRegular,
     weight: 400,
     style: "normal",
   },
   {
     name: "IBM Plex Sans",
-    data: bold,
+    data: ibmPlexSansBold,
     weight: 700,
     style: "normal",
   },
-]);
+];
 
 const clamp = (value: string, maxLength: number) => {
   const trimmed = value.trim();
@@ -249,7 +236,7 @@ export const GET: APIRoute = async ({ url }) => {
   const svg = await satori(image, {
     width: WIDTH,
     height: HEIGHT,
-    fonts: await fontsPromise,
+    fonts,
   });
   const png = new Resvg(svg).render().asPng();
 
