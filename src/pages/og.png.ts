@@ -174,7 +174,7 @@ export const GET: APIRoute = async ({ url }) => {
                         style: {
                           color: colors.subtle,
                           fontSize: "36px",
-                          lineHeight: 1.35,
+                          lineHeight: 1.375,
                           maxWidth: "896px",
                         },
                         children: description,
@@ -207,7 +207,7 @@ export const GET: APIRoute = async ({ url }) => {
                         color: colors.salmon,
                         fontFamily: "Lilex",
                         fontSize: "24px",
-                        padding: "8px 14px",
+                        padding: "8px 16px",
                       },
                       children: item,
                     },
