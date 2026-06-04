@@ -6,22 +6,22 @@
   --font-mono:
     "Lilex", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-  --color-base: #151726;
-  --color-interface: #1c1e2d;
-  --color-overlay: #232534;
-  --color-muted: #6b6d7c;
-  --color-subtle: #8d8f9e;
-  --color-text: #dee0ef;
-  --color-hightlight-low: #1f212f;
-  --color-highlight-low: #1f212f;
-  --color-highlight-medium: #3e404f;
-  --color-highlight-high: #4f5162;
-  --color-coral: #ee8679;
-  --color-salmon: #f8d2c9;
-  --color-fennel: #5ba2d0;
-  --color-mint: #9ccfd8;
-  --color-violet: #a78bfa;
-  --color-sky: #94b8ff;
+  --color-base: #101010;
+  --color-interface: #1a1a1a;
+  --color-overlay: #282828;
+  --color-muted: #7e7e7e;
+  --color-subtle: #a0a0a0;
+  --color-text: #ffffff;
+  --color-hightlight-low: #1a1a1a;
+  --color-highlight-low: #1a1a1a;
+  --color-highlight-medium: #232323;
+  --color-highlight-high: #282828;
+  --color-coral: #ffc799;
+  --color-salmon: #ffc799;
+  --color-fennel: #7e7e7e;
+  --color-mint: #99ffe4;
+  --color-violet: #ffc799;
+  --color-sky: #99ffe4;
 }
 
 body {
