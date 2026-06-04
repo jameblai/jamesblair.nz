@@ -235,7 +235,7 @@ export const GET: APIRoute = async ({ url }) => {
                 type: "div",
                 props: {
                   style: {
-                    color: colors.sky,
+                    color: colors.violet,
                   },
                   children: site.url.replace("https://", ""),
                 },
