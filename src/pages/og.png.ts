@@ -99,7 +99,7 @@ export const GET: APIRoute = async ({ url }) => {
         justifyContent: "space-between",
         backgroundColor: colors.base,
         color: colors.text,
-        padding: "64px",
+        padding: "32px",
         fontFamily: "IBM Plex Sans",
       },
       children: [
@@ -109,10 +109,10 @@ export const GET: APIRoute = async ({ url }) => {
             style: {
               display: "flex",
               flexDirection: "column",
-              gap: "32px",
+              gap: "8px",
               flex: 1,
-              border: `2px dashed ${colors.subtle}`,
-              padding: "48px",
+              border: `1px dashed ${colors.subtle}`,
+              padding: "16px",
             },
             children: [
               {
@@ -124,7 +124,7 @@ export const GET: APIRoute = async ({ url }) => {
                     alignItems: "center",
                     color: colors.violet,
                     fontFamily: "Lilex",
-                    fontSize: "30px",
+                    fontSize: "18px",
                     letterSpacing: "0.02em",
                   },
                   children: "jamesblair.nz",
@@ -136,7 +136,7 @@ export const GET: APIRoute = async ({ url }) => {
                   style: {
                     display: "flex",
                     flexDirection: "column",
-                    gap: "24px",
+                    gap: "32px",
                   },
                   children: [
                     {
@@ -148,7 +148,7 @@ export const GET: APIRoute = async ({ url }) => {
                           gap: "8px",
                           color: colors.sky,
                           fontFamily: "Lilex",
-                          fontSize: "72px",
+                          fontSize: "24px",
                           fontWeight: 700,
                           lineHeight: 1,
                         },
@@ -158,8 +158,8 @@ export const GET: APIRoute = async ({ url }) => {
                             type: "span",
                             props: {
                               style: {
-                                width: "32px",
-                                height: "56px",
+                                width: "16px",
+                                height: "24px",
                                 backgroundColor: colors.text,
                                 display: "flex",
                               },
@@ -173,7 +173,7 @@ export const GET: APIRoute = async ({ url }) => {
                       props: {
                         style: {
                           color: colors.subtle,
-                          fontSize: "36px",
+                          fontSize: "16px",
                           lineHeight: 1.625,
                           maxWidth: "896px",
                         },
@@ -188,7 +188,7 @@ export const GET: APIRoute = async ({ url }) => {
                 props: {
                   style: {
                     display: "flex",
-                    gap: "16px",
+                    gap: "8px",
                     flexWrap: "wrap",
                     marginTop: "auto",
                   },
@@ -203,11 +203,11 @@ export const GET: APIRoute = async ({ url }) => {
                     type: "div",
                     props: {
                       style: {
-                        border: `2px dashed ${colors.salmon}`,
+                        border: `1px dashed ${colors.salmon}`,
                         color: colors.salmon,
                         fontFamily: "Lilex",
-                        fontSize: "24px",
-                        padding: "8px 16px",
+                        fontSize: "14px",
+                        padding: "4px 8px",
                       },
                       children: item,
                     },
@@ -226,8 +226,8 @@ export const GET: APIRoute = async ({ url }) => {
               alignItems: "center",
               color: colors.subtle,
               fontFamily: "Lilex",
-              fontSize: "24px",
-              paddingTop: "24px",
+              fontSize: "16px",
+              paddingTop: "32px",
             },
             children: [
               "Computer Science · University of Auckland",
