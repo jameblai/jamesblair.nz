@@ -17,6 +17,7 @@ const colorTokenNames = [
   "text",
   "salmon",
   "sky",
+  "violet",
 ] as const;
 
 type ColorTokenName = (typeof colorTokenNames)[number];
@@ -85,12 +86,7 @@ type SatoriNode = Parameters<typeof satori>[0];
 
 export const GET: APIRoute = async ({ url }) => {
   const title = getParam(url, "title", site.name, 80);
-  const description = getParam(
-    url,
-    "description",
-    "Computer Science @ University of Auckland · Full-stack developer",
-    140,
-  );
+  const description = getParam(url, "description", "Full-stack developer", 80);
 
   const image = {
     type: "div",
@@ -116,7 +112,6 @@ export const GET: APIRoute = async ({ url }) => {
               gap: "30px",
               flex: 1,
               border: `2px dashed ${colors.subtle}`,
-              backgroundColor: colors.interface,
               padding: "48px",
             },
             children: [
@@ -127,7 +122,7 @@ export const GET: APIRoute = async ({ url }) => {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    color: colors.subtle,
+                    color: colors.violet,
                     fontFamily: "Lilex",
                     fontSize: "28px",
                     letterSpacing: "0.02em",
