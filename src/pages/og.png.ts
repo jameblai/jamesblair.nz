@@ -109,7 +109,7 @@ export const GET: APIRoute = async ({ url }) => {
             style: {
               display: "flex",
               flexDirection: "column",
-              gap: "30px",
+              gap: "32px",
               flex: 1,
               border: `2px dashed ${colors.subtle}`,
               padding: "48px",
@@ -124,7 +124,7 @@ export const GET: APIRoute = async ({ url }) => {
                     alignItems: "center",
                     color: colors.violet,
                     fontFamily: "Lilex",
-                    fontSize: "28px",
+                    fontSize: "30px",
                     letterSpacing: "0.02em",
                   },
                   children: "jamesblair.nz",
@@ -136,7 +136,7 @@ export const GET: APIRoute = async ({ url }) => {
                   style: {
                     display: "flex",
                     flexDirection: "column",
-                    gap: "22px",
+                    gap: "24px",
                   },
                   children: [
                     {
@@ -145,10 +145,10 @@ export const GET: APIRoute = async ({ url }) => {
                         style: {
                           display: "flex",
                           alignItems: "center",
-                          gap: "10px",
+                          gap: "8px",
                           color: colors.sky,
                           fontFamily: "Lilex",
-                          fontSize: "76px",
+                          fontSize: "72px",
                           fontWeight: 700,
                           lineHeight: 1,
                         },
@@ -159,7 +159,7 @@ export const GET: APIRoute = async ({ url }) => {
                             props: {
                               style: {
                                 width: "32px",
-                                height: "58px",
+                                height: "56px",
                                 backgroundColor: colors.text,
                                 display: "flex",
                               },
@@ -175,7 +175,7 @@ export const GET: APIRoute = async ({ url }) => {
                           color: colors.subtle,
                           fontSize: "36px",
                           lineHeight: 1.35,
-                          maxWidth: "900px",
+                          maxWidth: "896px",
                         },
                         children: description,
                       },
