@@ -166,7 +166,7 @@ const hackathons: Hackathon[] = [
 <BaseLayout>
   <div class="container mx-auto flex max-w-4xl flex-col p-8">
     <header
-      class="flex flex-col justify-between gap-4 md:flex-row md:items-start md:gap-8"
+      class="motion-fade-up flex flex-col justify-between gap-4 md:flex-row md:items-start md:gap-8"
     >
       <Heading tag="h1">
         <span>James Blair</span><span
@@ -182,14 +182,17 @@ const hackathons: Hackathon[] = [
     </header>
 
     <main class="flex flex-col gap-8 py-8">
-      <section>
+      <section class="motion-fade-up" style="--motion-delay: 80ms">
         <p>
           Kia ora! I'm a first-year Computer Science student at The University
           of Auckland.
         </p>
       </section>
 
-      <section class="flex flex-col gap-4">
+      <section
+        class="motion-fade-up flex flex-col gap-4"
+        style="--motion-delay: 140ms"
+      >
         <Heading tag="h2">Skills</Heading>
 
         <ul>
@@ -211,7 +214,10 @@ const hackathons: Hackathon[] = [
         </ul>
       </section>
 
-      <section class="flex flex-col gap-4">
+      <section
+        class="motion-fade-up flex flex-col gap-4"
+        style="--motion-delay: 200ms"
+      >
         <Heading tag="h2">Projects</Heading>
         <div class="grid max-w-4xl gap-4">
           {
@@ -223,7 +229,7 @@ const hackathons: Hackathon[] = [
                 {!!project.tech?.length && (
                   <ul class="flex flex-wrap gap-2">
                     {project.tech.map((item) => (
-                      <li class="bg-string/10 text-string px-2 py-1 font-mono text-sm">
+                      <li class="bg-string/10 text-string hover:bg-string/15 px-2 py-1 font-mono text-sm transition-colors duration-200">
                         {item}
                       </li>
                     ))}
@@ -243,7 +249,10 @@ const hackathons: Hackathon[] = [
         </div>
       </section>
 
-      <section class="flex flex-col gap-4">
+      <section
+        class="motion-fade-up flex flex-col gap-4"
+        style="--motion-delay: 260ms"
+      >
         <Heading tag="h2">Hackathons</Heading>
         <div class="grid max-w-4xl gap-4">
           {
@@ -266,7 +275,7 @@ const hackathons: Hackathon[] = [
 
                 <ul class="flex flex-wrap gap-2">
                   {hackathon.tech.map((item) => (
-                    <li class="bg-string/10 text-string px-2 py-1 font-mono text-sm">
+                    <li class="bg-string/10 text-string hover:bg-string/15 px-2 py-1 font-mono text-sm transition-colors duration-200">
                       {item}
                     </li>
                   ))}
@@ -283,7 +292,10 @@ const hackathons: Hackathon[] = [
         </div>
       </section>
 
-      <section class="flex flex-col gap-4">
+      <section
+        class="motion-fade-up flex flex-col gap-4"
+        style="--motion-delay: 320ms"
+      >
         <Heading tag="h2">Contact</Heading>
         <ContactForm client:load />
       </section>

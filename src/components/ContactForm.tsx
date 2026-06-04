@@ -26,7 +26,7 @@ function Input({
   return (
     <input
       className={cn(
-        "border-border bg-bg-elevated placeholder:text-fg-dim border px-2.5 py-2",
+        "border-border bg-bg-elevated placeholder:text-fg-dim focus:border-accent border px-2.5 py-2 transition-colors duration-200 outline-none",
         className,
       )}
       {...props}
@@ -41,7 +41,7 @@ function TextArea({
   return (
     <textarea
       className={cn(
-        "border-border bg-bg-elevated placeholder:text-fg-dim min-h-48 border px-2.5 py-2",
+        "border-border bg-bg-elevated placeholder:text-fg-dim focus:border-accent min-h-48 border px-2.5 py-2 transition-colors duration-200 outline-none",
         className,
       )}
       {...props}
