@@ -26,7 +26,7 @@ function Input({
   return (
     <input
       className={cn(
-        "border-border border border-dashed px-2.5 py-2",
+        "border-border bg-bg-elevated border px-2.5 py-2",
         className,
       )}
       {...props}
@@ -41,7 +41,7 @@ function TextArea({
   return (
     <textarea
       className={cn(
-        "border-border min-h-48 border border-dashed px-2.5 py-2",
+        "border-border bg-bg-elevated min-h-48 border px-2.5 py-2",
         className,
       )}
       {...props}
@@ -166,12 +166,12 @@ export function ContactForm() {
   return (
     <form className="flex max-w-4xl flex-col gap-4" onSubmit={submit}>
       {state.status === "success" && (
-        <div className="border-accent bg-accent/20 border border-dashed p-4">
+        <div className="border-accent bg-accent/20 border p-4">
           Thank you for your message! :)
         </div>
       )}
       {errors?.form?.[0] && (
-        <div className="border-error bg-error/20 border border-dashed p-4">
+        <div className="border-error bg-error/20 border p-4">
           {errors.form[0]}
         </div>
       )}

@@ -111,6 +111,7 @@ const projects: Project[] = [
     name: "PaperSpigot Fork",
     description:
       "Identified and patched a state desync bug in PaperSpigot – out-of-range block placements were rejected without a corrective client update, causing ghost blocks. Fixed by forking the project and issuing the missing update packets.",
+    tech: ["Java", "PaperSpigot", "Minecraft", "NMS"],
   },
 ];
 
@@ -170,7 +171,7 @@ const hackathons: Hackathon[] = [
       <Heading tag="h1">
         <span>James Blair</span><span
           aria-hidden="true"
-          class="bg-fg vim-cursor inline-block align-baseline whitespace-pre"
+          class="bg-fg-muted vim-cursor inline-block align-baseline whitespace-pre"
           >{" "}</span
         >
       </Heading>
@@ -222,7 +223,7 @@ const hackathons: Hackathon[] = [
                 {!!project.tech?.length && (
                   <ul class="flex flex-wrap gap-2">
                     {project.tech.map((item) => (
-                      <li class="border-string text-string border border-dashed px-2 py-1 font-mono text-sm">
+                      <li class="bg-string/10 text-string px-2 py-1 font-mono text-sm">
                         {item}
                       </li>
                     ))}
@@ -265,7 +266,7 @@ const hackathons: Hackathon[] = [
 
                 <ul class="flex flex-wrap gap-2">
                   {hackathon.tech.map((item) => (
-                    <li class="border-string text-string border border-dashed px-2 py-1 font-mono text-sm">
+                    <li class="bg-string/10 text-string px-2 py-1 font-mono text-sm">
                       {item}
                     </li>
                   ))}
