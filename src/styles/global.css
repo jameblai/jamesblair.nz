@@ -42,6 +42,11 @@ body {
   color: var(--color-fg);
 }
 
+::selection {
+  background-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  color: var(--color-fg);
+}
+
 @keyframes vim-cursor-blink {
   0%,
   49% {
