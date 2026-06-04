@@ -16,6 +16,9 @@ importers:
       "@fontsource/ibm-plex-sans":
         specifier: ^5.2.8
         version: 5.2.8
+      "@fontsource/lilex":
+        specifier: ^5.2.1
+        version: 5.2.1
       "@resvg/resvg-js":
         specifier: ^2.6.2
         version: 2.6.2
@@ -697,6 +700,12 @@ packages:
     resolution:
       {
         integrity: sha512-eztSXjDhPhcpxNIiGTgMebdLP9qS4rWkysuE1V7c+DjOR0qiezaiDaTwQE7bTnG5HxAY/8M43XKDvs3cYq6ZYQ==,
+      }
+
+  "@fontsource/lilex@5.2.1":
+    resolution:
+      {
+        integrity: sha512-KnfU2zYPB8JWvxbB4SOn3dR3vivBGVPUGHvOIi176b8Uus4iOL2lbF6lrKf8BZlNSM/qeAxYmaMmqnhwZ/KMzQ==,
       }
 
   "@humanfs/core@0.19.2":
@@ -5674,6 +5683,8 @@ snapshots:
       levn: 0.4.1
 
   "@fontsource/ibm-plex-sans@5.2.8": {}
+
+  "@fontsource/lilex@5.2.1": {}
 
   "@humanfs/core@0.19.2":
     dependencies:

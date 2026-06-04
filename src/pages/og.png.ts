@@ -2,7 +2,7 @@ import { Resvg } from "@resvg/resvg-js";
 import type { APIRoute } from "astro";
 import satori, { type SatoriOptions } from "satori";
 
-import { ibmPlexSansBold, ibmPlexSansRegular } from "@/lib/og-fonts";
+import { ibmPlexSansRegular, lilexBold, lilexRegular } from "@/lib/og-fonts";
 import { site } from "@/lib/site";
 
 const WIDTH = 1200;
@@ -26,8 +26,14 @@ const fonts: SatoriOptions["fonts"] = [
     style: "normal",
   },
   {
-    name: "IBM Plex Sans",
-    data: ibmPlexSansBold,
+    name: "Lilex",
+    data: lilexRegular,
+    weight: 400,
+    style: "normal",
+  },
+  {
+    name: "Lilex",
+    data: lilexBold,
     weight: 700,
     style: "normal",
   },
@@ -72,7 +78,7 @@ export const GET: APIRoute = async ({ url }) => {
         justifyContent: "space-between",
         backgroundColor: colors.base,
         color: colors.text,
-        padding: "72px",
+        padding: "64px",
         fontFamily: "IBM Plex Sans",
       },
       children: [
@@ -82,13 +88,11 @@ export const GET: APIRoute = async ({ url }) => {
             style: {
               display: "flex",
               flexDirection: "column",
-              gap: "34px",
+              gap: "30px",
               flex: 1,
-              border: `2px dashed ${colors.salmon}`,
-              borderRadius: "28px",
+              border: `2px dashed ${colors.subtle}`,
               backgroundColor: colors.interface,
-              padding: "56px",
-              boxShadow: "0 24px 80px rgba(0, 0, 0, 0.22)",
+              padding: "48px",
             },
             children: [
               {
@@ -99,22 +103,11 @@ export const GET: APIRoute = async ({ url }) => {
                     justifyContent: "space-between",
                     alignItems: "center",
                     color: colors.subtle,
-                    fontSize: "30px",
+                    fontFamily: "Lilex",
+                    fontSize: "28px",
                     letterSpacing: "0.02em",
                   },
-                  children: [
-                    "jamesblair.nz",
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          width: "18px",
-                          height: "34px",
-                          backgroundColor: colors.text,
-                        },
-                      },
-                    },
-                  ],
+                  children: "jamesblair.nz",
                 },
               },
               {
@@ -132,11 +125,12 @@ export const GET: APIRoute = async ({ url }) => {
                         style: {
                           display: "flex",
                           alignItems: "center",
-                          gap: "22px",
-                          fontSize: "92px",
+                          gap: "10px",
+                          color: colors.mint,
+                          fontFamily: "Lilex",
+                          fontSize: "76px",
                           fontWeight: 700,
                           lineHeight: 1,
-                          letterSpacing: "-0.045em",
                         },
                         children: [
                           title,
@@ -144,8 +138,8 @@ export const GET: APIRoute = async ({ url }) => {
                             type: "span",
                             props: {
                               style: {
-                                width: "38px",
-                                height: "72px",
+                                width: "32px",
+                                height: "58px",
                                 backgroundColor: colors.text,
                                 display: "flex",
                               },
@@ -159,7 +153,7 @@ export const GET: APIRoute = async ({ url }) => {
                       props: {
                         style: {
                           color: colors.subtle,
-                          fontSize: "38px",
+                          fontSize: "36px",
                           lineHeight: 1.35,
                           maxWidth: "900px",
                         },
@@ -190,11 +184,10 @@ export const GET: APIRoute = async ({ url }) => {
                     props: {
                       style: {
                         border: `2px dashed ${colors.salmon}`,
-                        borderRadius: "999px",
                         color: colors.salmon,
+                        fontFamily: "Lilex",
                         fontSize: "24px",
-                        padding: "10px 18px",
-                        backgroundColor: colors.overlay,
+                        padding: "8px 14px",
                       },
                       children: item,
                     },
@@ -212,8 +205,9 @@ export const GET: APIRoute = async ({ url }) => {
               justifyContent: "space-between",
               alignItems: "center",
               color: colors.subtle,
-              fontSize: "26px",
-              paddingTop: "28px",
+              fontFamily: "Lilex",
+              fontSize: "24px",
+              paddingTop: "24px",
             },
             children: [
               "Computer Science · University of Auckland",
