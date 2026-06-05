@@ -25,8 +25,8 @@ const STEP = DOT_SIZE + DOT_GAP;
 const HOVER_RADIUS = 44;
 const OPACITY_BY_LEVEL = [0.12, 0.32, 0.5, 0.68, 0.88];
 
-// 7 rows × 7px + 6 gaps × 5px + py-1 (4px × 2)
-const GRAPH_HEIGHT = 7 * DOT_SIZE + 6 * DOT_GAP + 8;
+// 7 rows × 7px + 6 gaps × 5px + inner py-1 + outer py-1
+const GRAPH_HEIGHT = 7 * DOT_SIZE + 6 * DOT_GAP + 8 + 8;
 
 const formatContributionCount = (count: number) =>
   new Intl.NumberFormat("en-NZ").format(count);
