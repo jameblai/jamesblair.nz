@@ -1,6 +1,10 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-import type { GithubContributionDay } from "@/lib/github-contributions";
+interface GithubContributionDay {
+  date: string;
+  count: number;
+  level: number;
+}
 
 interface ContributionDot extends GithubContributionDay {
   week: number;
@@ -12,10 +16,8 @@ interface PointerPosition {
   y: number;
 }
 
-interface GithubContributionGraphProps {
-  days: GithubContributionDay[];
-  total: number;
-}
+const GITHUB_CONTRIBUTIONS_URL =
+  "https://github-contributions-api.jogruber.de/v4/jameblai?y=last";
 
 const DOT_SIZE = 7;
 const DOT_GAP = 5;
@@ -45,15 +47,73 @@ const getContributionDots = (
   });
 };
 
-export const GithubContributionGraph = ({
-  days,
-  total,
-}: GithubContributionGraphProps) => {
+interface ContributionData {
+  days: GithubContributionDay[];
+  total: number;
+}
+
+function isContributionDay(value: unknown): value is GithubContributionDay {
+  if (!value || typeof value !== "object") return false;
+  const day = value as Record<string, unknown>;
+  return (
+    typeof day.date === "string" &&
+    typeof day.count === "number" &&
+    typeof day.level === "number"
+  );
+}
+
+async function fetchContributions(): Promise<ContributionData> {
+  const response = await fetch(GITHUB_CONTRIBUTIONS_URL);
+  if (!response.ok) {
+    throw new Error(`GitHub contributions API returned ${response.status}`);
+  }
+
+  const data = (await response.json()) as {
+    total?: { lastYear?: number };
+    contributions?: GithubContributionDay[];
+  };
+
+  const days = data.contributions?.filter(isContributionDay) ?? [];
+
+  return {
+    total:
+      typeof data.total?.lastYear === "number"
+        ? data.total.lastYear
+        : days.reduce((sum, day) => sum + day.count, 0),
+    days,
+  };
+}
+
+export const GithubContributionGraph = () => {
+  const [data, setData] = useState<ContributionData | null>(null);
   const [pointer, setPointer] = useState<PointerPosition | null>(null);
   const graphRef = useRef<HTMLDivElement>(null);
-  const dots = useMemo(() => getContributionDots(days), [days]);
+
+  useEffect(() => {
+    fetchContributions()
+      .then(setData)
+      .catch(() => {
+        // Silently fail — graph just won't render
+      });
+  }, []);
+
+  const dots = useMemo(
+    () => (data ? getContributionDots(data.days) : []),
+    [data],
+  );
   const weekCount =
     dots.length > 0 ? Math.max(...dots.map((dot) => dot.week)) + 1 : 0;
+
+  if (!data || dots.length === 0) {
+    return (
+      <section
+        className="flex flex-col gap-3"
+        aria-label="GitHub contributions"
+      >
+        <div className="bg-bg-elevated h-[52px] animate-pulse rounded" />
+      </section>
+    );
+  }
 
   return (
     <section className="flex flex-col gap-3" aria-label="GitHub contributions">
@@ -65,7 +125,6 @@ export const GithubContributionGraph = ({
           if (!graph) {
             return;
           }
-
           const rect = graph.getBoundingClientRect();
           setPointer({
             x: event.clientX - rect.left,
@@ -114,7 +173,7 @@ export const GithubContributionGraph = ({
 
       <p className="text-fg-muted flex flex-wrap gap-x-2 gap-y-1 font-mono text-sm">
         <span>
-          {formatContributionCount(total)} contributions in the last year
+          {formatContributionCount(data.total)} contributions in the last year
         </span>
         <span aria-hidden="true">·</span>
         <a

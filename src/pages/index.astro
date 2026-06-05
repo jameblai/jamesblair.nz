@@ -4,7 +4,6 @@ import { ContactForm } from "@/components/ContactForm";
 import { GithubContributionGraph } from "@/components/GithubContributionGraph";
 import Heading from "@/components/Heading.astro";
 import Link from "@/components/Link.astro";
-import { getGithubContributions } from "@/lib/github-contributions";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 interface Project {
@@ -201,8 +200,6 @@ const hackathons: Hackathon[] = [
     tech: ["TypeScript", "Next.js", "Drizzle ORM", "Postgres", "UploadThing"],
   },
 ];
-const { days: githubContributionDays, total: githubContributionTotal } =
-  await getGithubContributions();
 ---
 
 <BaseLayout>
@@ -231,11 +228,7 @@ const { days: githubContributionDays, total: githubContributionTotal } =
         </p>
       </section>
 
-      <GithubContributionGraph
-        days={githubContributionDays}
-        total={githubContributionTotal}
-        client:load
-      />
+      <GithubContributionGraph client:load />
 
       <div
         class="border-border bg-bg-elevated/60 marquee-fade overflow-hidden border py-2"
