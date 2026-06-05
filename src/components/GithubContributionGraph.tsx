@@ -90,6 +90,7 @@ async function fetchContributions(): Promise<ContributionData> {
 export const GithubContributionGraph = () => {
   const [data, setData] = useState<ContributionData | null>(null);
   const [pointer, setPointer] = useState<PointerPosition | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const graphRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -100,12 +101,31 @@ export const GithubContributionGraph = () => {
       });
   }, []);
 
-  const dots = useMemo(
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 639px)");
+    setIsMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+
+  const allDots = useMemo(
     () => (data ? getContributionDots(data.days) : []),
     [data],
   );
+
+  const MOBILE_WEEKS = 26;
+  const dots = useMemo(() => {
+    if (!isMobile) return allDots;
+    const maxWeek = allDots.length > 0 ? Math.max(...allDots.map((d) => d.week)) : 0;
+    const cutoffWeek = maxWeek - MOBILE_WEEKS + 1;
+    return allDots.filter((d) => d.week >= cutoffWeek);
+  }, [allDots, isMobile]);
+
   const weekCount =
-    dots.length > 0 ? Math.max(...dots.map((dot) => dot.week)) + 1 : 0;
+    dots.length > 0 ? Math.max(...dots.map((dot) => dot.week)) + 1 - Math.min(...dots.map((dot) => dot.week)) : 0;
+  const minWeek =
+    dots.length > 0 ? Math.min(...dots.map((dot) => dot.week)) : 0;
 
   return (
     <section className="flex flex-col gap-3" aria-label="GitHub contributions">
@@ -135,7 +155,8 @@ export const GithubContributionGraph = () => {
             }}
           >
             {dots.map((dot) => {
-              const centerX = dot.week * STEP + DOT_SIZE / 2;
+              const normalizedWeek = dot.week - minWeek;
+              const centerX = normalizedWeek * STEP + DOT_SIZE / 2;
               const centerY = dot.day * STEP + DOT_SIZE / 2 + 4;
               const distance = pointer
                 ? Math.hypot(pointer.x - centerX, pointer.y - centerY)
@@ -155,7 +176,7 @@ export const GithubContributionGraph = () => {
                   style={{
                     width: DOT_SIZE,
                     height: DOT_SIZE,
-                    gridColumnStart: dot.week + 1,
+                    gridColumnStart: normalizedWeek + 1,
                     gridRowStart: dot.day + 1,
                     opacity,
                   }}
