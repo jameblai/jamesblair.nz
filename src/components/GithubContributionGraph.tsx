@@ -3,10 +3,8 @@ import { useMemo, useRef, useState } from "react";
 import type { GithubContributionDay } from "@/lib/github-contributions";
 
 interface ContributionDot extends GithubContributionDay {
-  key: string;
   week: number;
   day: number;
-  visible: boolean;
 }
 
 interface PointerPosition {
@@ -31,57 +29,20 @@ const formatContributionCount = (count: number) =>
 const getUtcDay = (date: string) =>
   new Date(`${date}T00:00:00.000Z`).getUTCDay();
 
-const chunkContributionDays = (
+const getContributionDots = (
   days: GithubContributionDay[],
 ): ContributionDot[] => {
-  if (days.length === 0) {
-    return [];
-  }
-
   const firstDayOffset = getUtcDay(days[0]?.date ?? "");
-  const paddedDays: ContributionDot[] = [];
 
-  for (let index = 0; index < firstDayOffset; index += 1) {
-    paddedDays.push({
-      key: `empty-start-${index}`,
-      date: "",
-      count: 0,
-      level: 0,
-      week: 0,
-      day: index,
-      visible: false,
-    });
-  }
+  return days.map((day, index) => {
+    const gridIndex = index + firstDayOffset;
 
-  days.forEach((day, index) => {
-    const paddedIndex = index + firstDayOffset;
-
-    paddedDays.push({
+    return {
       ...day,
-      key: day.date,
-      week: Math.floor(paddedIndex / 7),
-      day: paddedIndex % 7,
-      visible: true,
-    });
+      week: Math.floor(gridIndex / 7),
+      day: gridIndex % 7,
+    };
   });
-
-  const trailingDays = (7 - (paddedDays.length % 7)) % 7;
-
-  for (let index = 0; index < trailingDays; index += 1) {
-    const paddedIndex = paddedDays.length;
-
-    paddedDays.push({
-      key: `empty-end-${index}`,
-      date: "",
-      count: 0,
-      level: 0,
-      week: Math.floor(paddedIndex / 7),
-      day: paddedIndex % 7,
-      visible: false,
-    });
-  }
-
-  return paddedDays;
 };
 
 export const GithubContributionGraph = ({
@@ -90,7 +51,7 @@ export const GithubContributionGraph = ({
 }: GithubContributionGraphProps) => {
   const [pointer, setPointer] = useState<PointerPosition | null>(null);
   const graphRef = useRef<HTMLDivElement>(null);
-  const dots = useMemo(() => chunkContributionDays(days), [days]);
+  const dots = useMemo(() => getContributionDots(days), [days]);
   const weekCount =
     dots.length > 0 ? Math.max(...dots.map((dot) => dot.week)) + 1 : 0;
 
@@ -115,7 +76,7 @@ export const GithubContributionGraph = ({
       >
         <div
           ref={graphRef}
-          className="relative grid w-max grid-flow-col grid-rows-7 gap-[5px] py-1"
+          className="relative grid w-max grid-rows-7 gap-[5px] py-1"
           style={{
             gridTemplateColumns: `repeat(${weekCount}, ${DOT_SIZE}px)`,
           }}
@@ -137,16 +98,18 @@ export const GithubContributionGraph = ({
 
             return (
               <span
-                key={dot.key}
+                key={dot.date}
                 aria-hidden="true"
                 className="bg-fg block rounded-full transition-[opacity,transform,box-shadow] duration-300 ease-out"
                 style={{
                   width: DOT_SIZE,
                   height: DOT_SIZE,
-                  opacity: dot.visible ? opacity : 0,
+                  gridColumnStart: dot.week + 1,
+                  gridRowStart: dot.day + 1,
+                  opacity,
                   transform: `translateY(${yOffset}px) scale(${scale})`,
                   boxShadow:
-                    dot.visible && pull > 0
+                    pull > 0
                       ? `0 0 ${Math.round(18 * pull)}px rgba(255, 255, 255, ${0.2 * pull})`
                       : "none",
                 }}
