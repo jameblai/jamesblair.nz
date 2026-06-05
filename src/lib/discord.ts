@@ -41,7 +41,8 @@ function formatContactEmbed(values: ContactFormValues) {
 }
 
 export async function sendContactFormSubmission(values: ContactFormValues) {
-  const webhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
+  const { env } = await import("cloudflare:workers");
+  const webhookUrl = env.DISCORD_WEBHOOK_URL;
 
   if (!webhookUrl) {
     throw new Error("DISCORD_WEBHOOK_URL is not configured.");
