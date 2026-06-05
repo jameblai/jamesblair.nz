@@ -69,7 +69,9 @@ const skillMarqueeItems = [
   "Base UI",
   "Radix UI",
   "shadcn",
-] as const;
+];
+
+const marqueeItems = [...skillMarqueeItems, ...skillMarqueeItems];
 
 const projects: Project[] = [
   {
@@ -237,21 +239,15 @@ const { days: githubContributionDays, total: githubContributionTotal } =
 
       <div
         class="border-border bg-bg-elevated/60 marquee-fade overflow-hidden border py-2"
-        aria-label="Technologies I work with"
+        aria-hidden="true"
       >
         <div
           class="skill-marquee text-fg-muted flex w-max gap-3 font-mono text-sm whitespace-nowrap"
         >
           {
-            [...skillMarqueeItems, ...skillMarqueeItems].map((item, index) => (
-              <span
-                class="flex items-center gap-3"
-                aria-hidden={
-                  index >= skillMarqueeItems.length ? "true" : undefined
-                }
-              >
-                <span>{item}</span>
-                <span class="text-comment">/</span>
+            marqueeItems.map((item) => (
+              <span class="after:text-comment after:ml-3 after:content-['/']">
+                {item}
               </span>
             ))
           }
