@@ -97,7 +97,7 @@ export const GithubContributionGraph = ({
   return (
     <section className="flex flex-col gap-3" aria-label="GitHub contributions">
       <div
-        className="border-border bg-bg-elevated/40 [scrollbar-color:var(--color-border)_transparent] overflow-x-auto border p-4"
+        className="[scrollbar-color:var(--color-border)_transparent] overflow-x-auto py-1"
         onMouseMove={(event) => {
           const graph = graphRef.current;
 
