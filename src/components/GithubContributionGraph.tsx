@@ -166,7 +166,7 @@ export const GithubContributionGraph = () => {
         )}
       </div>
 
-      <p className="text-fg-muted flex flex-wrap gap-x-2 gap-y-1 font-mono text-sm">
+      <p className="text-fg-muted flex min-h-[2.5rem] flex-wrap items-start gap-x-2 gap-y-1 font-mono text-sm">
         <span>
           {data
             ? `${formatContributionCount(data.total)} contributions in the last year`
