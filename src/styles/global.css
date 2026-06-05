@@ -63,13 +63,26 @@ body {
   animation: vim-cursor-blink 1s steps(1, end) infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 1ms !important;
+@keyframes skill-marquee {
+  from {
+    transform: translateX(0);
   }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.skill-marquee {
+  animation: skill-marquee 36s linear infinite;
+}
+
+.marquee-fade {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
 }

@@ -41,6 +41,38 @@ const headerLinks: { label: string; href: string }[] = [
   },
 ];
 
+const skillMarqueeItems = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Astro",
+  "Hono",
+  "ElysiaJS",
+  "Tailwind CSS",
+  "TanStack Query",
+  "TanStack Router",
+  "Drizzle ORM",
+  "Postgres",
+  "SQLite",
+  "Sanity CMS",
+  "Stripe",
+  "React Email",
+  "Cloudflare",
+  "Vercel",
+  "Docker",
+  "Linux",
+  "Caddy",
+  "Git",
+  "Python",
+  "Kotlin",
+  "C++",
+  "Base UI",
+  "Radix UI",
+  "shadcn",
+];
+
+const marqueeItems = [...skillMarqueeItems, ...skillMarqueeItems];
+
 const projects: Project[] = [
   {
     name: "WaiMUN",
@@ -102,6 +134,12 @@ const projects: Project[] = [
       },
     ],
     tech: ["TypeScript", "Astro", "SolidJS", "Tailwind CSS", "Sentry"],
+  },
+  {
+    name: "Homelab",
+    description:
+      "Maintain self-hosted infrastructure for learning production-style operations, including Linux servers, Docker services, reverse proxies, DNS, backups, and home networking.",
+    tech: ["Linux", "Docker", "Caddy", "Cloudflare", "Networking"],
   },
   {
     name: "Bridging Plugin",
@@ -199,27 +237,22 @@ const { days: githubContributionDays, total: githubContributionTotal } =
         client:load
       />
 
-      <section class="flex flex-col gap-4">
-        <Heading tag="h2">Skills</Heading>
-
-        <ul>
-          <li>
-            <span class="text-fg-muted font-mono">-</span> JavaScript, TypeScript,
-            Kotlin, Python, C++, C#
-          </li>
-          <li>
-            <span class="text-fg-muted font-mono">-</span> React, Next.js, Astro,
-            Hono, Tailwind CSS
-          </li>
-          <li>
-            <span class="text-fg-muted font-mono">-</span> Sanity CMS, Stripe, Amazon
-            SES, Cloudflare
-          </li>
-          <li>
-            <span class="text-fg-muted font-mono">-</span> Git, Docker, Linux
-          </li>
-        </ul>
-      </section>
+      <div
+        class="border-border bg-bg-elevated/60 marquee-fade overflow-hidden border py-2"
+        aria-hidden="true"
+      >
+        <div
+          class="skill-marquee text-fg-muted flex w-max gap-3 font-mono text-sm whitespace-nowrap"
+        >
+          {
+            marqueeItems.map((item) => (
+              <span class="after:text-comment after:ml-3 after:content-['/']">
+                {item}
+              </span>
+            ))
+          }
+        </div>
+      </div>
 
       <section class="flex flex-col gap-4">
         <Heading tag="h2">Projects</Heading>
