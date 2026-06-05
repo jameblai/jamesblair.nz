@@ -70,7 +70,7 @@ const skillMarqueeItems = [
   "shadcn",
 ];
 
-const marqueeItems = [...skillMarqueeItems, ...skillMarqueeItems];
+const marqueeCopies = [0, 1] as const;
 
 const projects: Project[] = [
   {
@@ -235,13 +235,20 @@ const hackathons: Hackathon[] = [
         aria-hidden="true"
       >
         <div
-          class="skill-marquee text-fg-muted flex w-max gap-3 font-mono text-sm whitespace-nowrap"
+          class="skill-marquee text-fg-muted flex w-max font-mono text-sm whitespace-nowrap"
         >
           {
-            marqueeItems.map((item) => (
-              <span class="after:text-comment after:ml-3 after:content-['/']">
-                {item}
-              </span>
+            marqueeCopies.map(() => (
+              <div class="flex shrink-0">
+                {skillMarqueeItems.map((item) => (
+                  <span class="flex shrink-0 items-center">
+                    <span>{item}</span>
+                    <span class="text-comment mx-3" aria-hidden="true">
+                      /
+                    </span>
+                  </span>
+                ))}
+              </div>
             ))
           }
         </div>
