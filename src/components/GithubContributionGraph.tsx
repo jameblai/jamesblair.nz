@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import type { GithubContributionDay } from "@/lib/github-contributions";
 
@@ -89,6 +89,7 @@ export const GithubContributionGraph = ({
   total,
 }: GithubContributionGraphProps) => {
   const [pointer, setPointer] = useState<PointerPosition | null>(null);
+  const graphRef = useRef<HTMLDivElement>(null);
   const dots = useMemo(() => chunkContributionDays(days), [days]);
   const weekCount =
     dots.length > 0 ? Math.max(...dots.map((dot) => dot.week)) + 1 : 0;
@@ -98,15 +99,22 @@ export const GithubContributionGraph = ({
       <div
         className="border-border bg-bg-elevated/40 [scrollbar-color:var(--color-border)_transparent] overflow-x-auto border p-4"
         onMouseMove={(event) => {
-          const rect = event.currentTarget.getBoundingClientRect();
+          const graph = graphRef.current;
+
+          if (!graph) {
+            return;
+          }
+
+          const rect = graph.getBoundingClientRect();
           setPointer({
-            x: event.clientX - rect.left + event.currentTarget.scrollLeft,
+            x: event.clientX - rect.left,
             y: event.clientY - rect.top,
           });
         }}
         onMouseLeave={() => setPointer(null)}
       >
         <div
+          ref={graphRef}
           className="relative grid w-max grid-flow-col grid-rows-7 gap-[5px] py-1"
           style={{
             gridTemplateColumns: `repeat(${weekCount}, ${DOT_SIZE}px)`,
