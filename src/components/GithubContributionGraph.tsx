@@ -166,7 +166,7 @@ export const GithubContributionGraph = () => {
         )}
       </div>
 
-      <p className="text-fg-muted flex min-h-[2.5rem] flex-wrap items-start gap-x-2 gap-y-1 font-mono text-sm">
+      <p className="text-fg-muted flex flex-wrap gap-x-2 gap-y-1 font-mono text-sm">
         <span>
           {data
             ? `${formatContributionCount(data.total)} contributions in the last year`
@@ -174,9 +174,9 @@ export const GithubContributionGraph = () => {
         </span>
         {data && (
           <>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true" className="hidden md:inline">·</span>
             <a
-              className="text-accent hover:text-string transition-colors duration-200"
+              className="text-accent hover:text-string hidden transition-colors duration-200 md:inline"
               href="https://github.com/jameblai"
               target="_blank"
               rel="noreferrer"
