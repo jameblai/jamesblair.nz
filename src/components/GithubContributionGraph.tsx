@@ -93,25 +93,18 @@ export const GithubContributionGraph = ({
               (OPACITY_BY_LEVEL[dot.level] ?? OPACITY_BY_LEVEL[0]) +
                 pull * 0.32,
             );
-            const scale = 1 + pull * 1.65;
-            const yOffset = -pull * 5;
 
             return (
               <span
                 key={dot.date}
                 aria-hidden="true"
-                className="bg-fg block rounded-full transition-[opacity,transform,box-shadow] duration-300 ease-out"
+                className="bg-fg block rounded-full transition-opacity duration-300 ease-out"
                 style={{
                   width: DOT_SIZE,
                   height: DOT_SIZE,
                   gridColumnStart: dot.week + 1,
                   gridRowStart: dot.day + 1,
                   opacity,
-                  transform: `translateY(${yOffset}px) scale(${scale})`,
-                  boxShadow:
-                    pull > 0
-                      ? `0 0 ${Math.round(18 * pull)}px rgba(255, 255, 255, ${0.2 * pull})`
-                      : "none",
                 }}
               />
             );
