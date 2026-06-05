@@ -1,8 +1,10 @@
 ---
 import Card from "@/components/Card.astro";
 import { ContactForm } from "@/components/ContactForm";
+import { GithubContributionGraph } from "@/components/GithubContributionGraph";
 import Heading from "@/components/Heading.astro";
 import Link from "@/components/Link.astro";
+import { getGithubContributions } from "@/lib/github-contributions";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 interface Project {
@@ -161,6 +163,8 @@ const hackathons: Hackathon[] = [
     tech: ["TypeScript", "Next.js", "Drizzle ORM", "Postgres", "UploadThing"],
   },
 ];
+const { days: githubContributionDays, total: githubContributionTotal } =
+  await getGithubContributions();
 ---
 
 <BaseLayout>
@@ -188,6 +192,12 @@ const hackathons: Hackathon[] = [
           of Auckland.
         </p>
       </section>
+
+      <GithubContributionGraph
+        days={githubContributionDays}
+        total={githubContributionTotal}
+        client:load
+      />
 
       <section class="flex flex-col gap-4">
         <Heading tag="h2">Skills</Heading>
