@@ -82,6 +82,8 @@ const getParam = (
 
 type SatoriNode = Parameters<typeof satori>[0];
 
+export const prerender = true;
+
 export const GET: APIRoute = async ({ url }) => {
   const title = getParam(url, "title", site.name, 80);
   const description = getParam(url, "description", "Full-stack developer", 80);
