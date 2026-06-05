@@ -41,6 +41,25 @@ const headerLinks: { label: string; href: string }[] = [
   },
 ];
 
+const skillMarqueeItems = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Astro",
+  "Hono",
+  "Tailwind CSS",
+  "Sanity CMS",
+  "Stripe",
+  "Amazon SES",
+  "Cloudflare",
+  "Docker",
+  "Linux",
+  "Git",
+  "Python",
+  "Kotlin",
+  "C++",
+] as const;
+
 const projects: Project[] = [
   {
     name: "WaiMUN",
@@ -102,6 +121,12 @@ const projects: Project[] = [
       },
     ],
     tech: ["TypeScript", "Astro", "SolidJS", "Tailwind CSS", "Sentry"],
+  },
+  {
+    name: "Homelab",
+    description:
+      "Maintain self-hosted infrastructure for learning production-style operations, including Linux servers, Docker services, reverse proxies, DNS, backups, and home networking.",
+    tech: ["Linux", "Docker", "Caddy", "Cloudflare", "Networking"],
   },
   {
     name: "Bridging Plugin",
@@ -199,27 +224,28 @@ const { days: githubContributionDays, total: githubContributionTotal } =
         client:load
       />
 
-      <section class="flex flex-col gap-4">
-        <Heading tag="h2">Skills</Heading>
-
-        <ul>
-          <li>
-            <span class="text-fg-muted font-mono">-</span> JavaScript, TypeScript,
-            Kotlin, Python, C++, C#
-          </li>
-          <li>
-            <span class="text-fg-muted font-mono">-</span> React, Next.js, Astro,
-            Hono, Tailwind CSS
-          </li>
-          <li>
-            <span class="text-fg-muted font-mono">-</span> Sanity CMS, Stripe, Amazon
-            SES, Cloudflare
-          </li>
-          <li>
-            <span class="text-fg-muted font-mono">-</span> Git, Docker, Linux
-          </li>
-        </ul>
-      </section>
+      <div
+        class="border-border bg-bg-elevated/60 marquee-fade overflow-hidden border py-2"
+        aria-label="Technologies I work with"
+      >
+        <div
+          class="skill-marquee text-fg-muted flex w-max gap-3 font-mono text-sm whitespace-nowrap"
+        >
+          {
+            [...skillMarqueeItems, ...skillMarqueeItems].map((item, index) => (
+              <span
+                class="flex items-center gap-3"
+                aria-hidden={
+                  index >= skillMarqueeItems.length ? "true" : undefined
+                }
+              >
+                <span>{item}</span>
+                <span class="text-comment">/</span>
+              </span>
+            ))
+          }
+        </div>
+      </div>
 
       <section class="flex flex-col gap-4">
         <Heading tag="h2">Projects</Heading>

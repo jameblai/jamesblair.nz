@@ -63,6 +63,36 @@ body {
   animation: vim-cursor-blink 1s steps(1, end) infinite;
 }
 
+@keyframes skill-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.skill-marquee {
+  animation: skill-marquee 36s linear infinite;
+}
+
+.marquee-fade {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-marquee {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
