@@ -1,6 +1,6 @@
 # jamesblair.nz
 
-Personal site built with Astro, React islands, Tailwind CSS, and deployed on Vercel.
+Personal site built with Astro, React islands, Tailwind CSS, and deployed on Cloudflare.
 
 ## Getting Started
 
