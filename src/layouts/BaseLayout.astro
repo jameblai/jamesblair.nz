@@ -1,4 +1,6 @@
 ---
+import { Font } from "astro:assets";
+
 import { site } from "@/lib/site";
 import "@/styles/global.css";
 
@@ -33,6 +35,8 @@ const imageAlt = `${pageTitle} — ${description}`;
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <Font cssVariable="--font-ibm-plex-sans" preload />
+    <Font cssVariable="--font-lilex" preload />
 
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />

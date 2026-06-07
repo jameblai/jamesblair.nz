@@ -10,12 +10,6 @@ importers:
       "@astrojs/react":
         specifier: ^5.0.7
         version: 5.0.7(@types/node@24.12.4)(@types/react-dom@19.2.3(@types/react@19.2.16))(@types/react@19.2.16)(jiti@2.7.0)(lightningcss@1.32.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(yaml@2.9.0)
-      "@fontsource/ibm-plex-sans":
-        specifier: ^5.2.8
-        version: 5.2.8
-      "@fontsource/lilex":
-        specifier: ^5.2.1
-        version: 5.2.1
       "@resvg/resvg-js":
         specifier: ^2.6.2
         version: 2.6.2
@@ -992,18 +986,6 @@ packages:
         integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==,
       }
     engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
-
-  "@fontsource/ibm-plex-sans@5.2.8":
-    resolution:
-      {
-        integrity: sha512-eztSXjDhPhcpxNIiGTgMebdLP9qS4rWkysuE1V7c+DjOR0qiezaiDaTwQE7bTnG5HxAY/8M43XKDvs3cYq6ZYQ==,
-      }
-
-  "@fontsource/lilex@5.2.1":
-    resolution:
-      {
-        integrity: sha512-KnfU2zYPB8JWvxbB4SOn3dR3vivBGVPUGHvOIi176b8Uus4iOL2lbF6lrKf8BZlNSM/qeAxYmaMmqnhwZ/KMzQ==,
-      }
 
   "@humanfs/core@0.19.2":
     resolution:
@@ -5833,10 +5815,6 @@ snapshots:
     dependencies:
       "@eslint/core": 0.17.0
       levn: 0.4.1
-
-  "@fontsource/ibm-plex-sans@5.2.8": {}
-
-  "@fontsource/lilex@5.2.1": {}
 
   "@humanfs/core@0.19.2":
     dependencies:
