@@ -1,0 +1,158 @@
+---
+import Card from "@/components/Card.astro";
+import Heading from "@/components/Heading.astro";
+import Link from "@/components/Link.astro";
+
+interface Project {
+  name: string;
+  description: string;
+  links?: {
+    label: string;
+    href: string;
+  }[];
+  tech?: string[];
+}
+
+const projects: Project[] = [
+  {
+    name: "WaiMUN",
+    description:
+      "Built and deployed the full-stack event platform in collaboration with organising committee members – managing registration, payments, personalised badge generation and automated emails for 126 registered students across 15 schools.",
+    links: [
+      {
+        label: "Website",
+        href: "https://waimun.org",
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/waimun-org/waimun",
+      },
+    ],
+    tech: [
+      "TypeScript",
+      "Astro",
+      "Tailwind CSS",
+      "Sanity CMS",
+      "Airtable",
+      "Stripe",
+      "React Email",
+    ],
+  },
+  {
+    name: "Profiles",
+    description:
+      "A polished link-in-bio platform with auth, profile editing, public username pages, database on D1, and media uploads with R2, deployed on Cloudflare Workers.",
+    links: [
+      {
+        label: "Website",
+        href: "https://profiles.r80.workers.dev/",
+      },
+      {
+        label: "Profile",
+        href: "https://profiles.r80.workers.dev/u/james",
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/jameblai/profiles",
+      },
+    ],
+    tech: [
+      "TypeScript",
+      "TanStack Start",
+      "React",
+      "Better Auth",
+      "Drizzle ORM",
+      "Cloudflare Workers",
+      "D1",
+      "R2",
+    ],
+  },
+  {
+    name: "Air Quality Monitor",
+    description:
+      "Developed an air quality monitor on an ESP32 in C++, pushing serialised eCO2, TVOC and climate readings to a Hono/Drizzle REST API, with a Next.js frontend displaying live statistics using TanStack Query.",
+    links: [
+      {
+        href: "https://github.com/jameblai/air-quality",
+        label: "GitHub",
+      },
+    ],
+    tech: [
+      "C++",
+      "Arduino",
+      "TypeScript",
+      "Hono",
+      "Drizzle ORM",
+      "Next.js",
+      "Tailwind CSS",
+      "TanStack Query",
+    ],
+  },
+  {
+    name: "RHS Netball",
+    description:
+      "Developed a static website using Astro, serving assets from Cloudflare R2 – optimised for fast load times, giving coaches and umpires quick access to resources, photos and the embedded calendar.",
+    links: [
+      {
+        href: "https://rhs-netball.vercel.app",
+        label: "Website",
+      },
+      {
+        href: "https://github.com/jameblai/rhs-netball",
+        label: "GitHub",
+      },
+    ],
+    tech: ["TypeScript", "Astro", "SolidJS", "Tailwind CSS", "Sentry", "R2"],
+  },
+  {
+    name: "Homelab",
+    description:
+      "Maintain self-hosted infrastructure for learning production-style operations, including Linux servers, Docker services, reverse proxies, DNS, backups, and home networking.",
+    tech: ["Linux", "Docker", "Caddy", "Cloudflare", "Networking", "UniFi"],
+  },
+  {
+    name: "PaperSpigot Fork",
+    description:
+      "Identified and patched a state desync bug in PaperSpigot – out-of-range block placements were rejected without a corrective client update, causing ghost blocks. Fixed by forking the project and issuing the missing update packets.",
+    tech: ["Java", "PaperSpigot", "Minecraft", "NMS"],
+  },
+  {
+    name: "Bridging Plugin",
+    description:
+      "Developed a multiplayer game server plugin in Kotlin, implementing a session replay system, packet-level NMS hooks, and a persistent MariaDB database layer using Exposed and coroutines for async handling.",
+    tech: ["Kotlin", "Spigot", "Exposed", "MariaDB"],
+  },
+];
+---
+
+<section class="flex flex-col gap-4">
+  <Heading tag="h2">Projects</Heading>
+  <div class="grid max-w-4xl gap-4">
+    {
+      projects.map((project) => (
+        <Card>
+          <Heading tag="h3">{project.name}</Heading>
+          <p>{project.description}</p>
+
+          {!!project.tech?.length && (
+            <ul class="flex flex-wrap gap-2">
+              {project.tech.map((item) => (
+                <li class="bg-string/10 text-string hover:bg-string/15 px-2 py-1 font-mono text-sm transition-colors duration-200">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {!!project.links?.length && (
+            <div class="mt-auto flex gap-4">
+              {project.links.map((link) => (
+                <Link href={link.href}>{link.label}</Link>
+              ))}
+            </div>
+          )}
+        </Card>
+      ))
+    }
+  </div>
+</section>

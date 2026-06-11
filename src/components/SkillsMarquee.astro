@@ -1,0 +1,57 @@
+---
+const skillMarqueeItems = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Astro",
+  "Hono",
+  "ElysiaJS",
+  "Tailwind CSS",
+  "TanStack Query",
+  "TanStack Router",
+  "Drizzle ORM",
+  "Postgres",
+  "SQLite",
+  "Sanity CMS",
+  "Stripe",
+  "React Email",
+  "Cloudflare",
+  "Vercel",
+  "Docker",
+  "Linux",
+  "Caddy",
+  "Git",
+  "Python",
+  "Kotlin",
+  "C++",
+  "Base UI",
+  "Radix UI",
+  "shadcn",
+];
+
+const marqueeCopies = [0, 1] as const;
+---
+
+<div
+  class="border-border bg-bg-elevated/60 marquee-fade overflow-hidden border py-2"
+  aria-hidden="true"
+>
+  <div
+    class="skill-marquee text-fg-muted flex w-max font-mono text-sm whitespace-nowrap"
+  >
+    {
+      marqueeCopies.map(() => (
+        <div class="flex shrink-0">
+          {skillMarqueeItems.map((item) => (
+            <span class="flex shrink-0 items-center">
+              <span>{item}</span>
+              <span class="text-comment mx-3" aria-hidden="true">
+                /
+              </span>
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>
