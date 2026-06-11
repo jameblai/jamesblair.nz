@@ -1,6 +1,7 @@
 ---
 import { Font } from "astro:assets";
 
+import Footer from "@/components/Footer.astro";
 import { site } from "@/lib/site";
 import "@/styles/global.css";
 
@@ -56,5 +57,6 @@ const imageAlt = `${pageTitle} — ${description}`;
   </head>
   <body class="flex min-h-full flex-col font-sans leading-relaxed">
     <slot />
+    <Footer />
   </body>
 </html>

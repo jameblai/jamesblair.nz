@@ -1,0 +1,40 @@
+---
+import { execSync } from "node:child_process";
+
+import Link from "@/components/Link.astro";
+
+const repositoryUrl = "https://github.com/jameblai/jamesblair.nz";
+
+function getCommitSha() {
+  const cloudflareSha = process.env.CF_PAGES_COMMIT_SHA;
+
+  if (cloudflareSha) {
+    return cloudflareSha.slice(0, 7);
+  }
+
+  try {
+    return execSync("git rev-parse --short HEAD", {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+  } catch {
+    return "unknown";
+  }
+}
+
+const commitSha = getCommitSha();
+---
+
+<footer class="mt-auto">
+  <div
+    class="border-border text-fg-muted container mx-auto flex max-w-4xl flex-col gap-3 border-t px-8 py-6 font-mono text-sm md:flex-row md:items-center md:justify-between"
+  >
+    <p>
+      built with <span class="text-fg">Astro</span>
+      <span class="text-comment" aria-hidden="true">/</span>
+      commit <span class="text-fg">{commitSha}</span>
+    </p>
+
+    <Link href={repositoryUrl} class="text-sm">GitHub repo</Link>
+  </div>
+</footer>
