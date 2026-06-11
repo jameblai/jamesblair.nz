@@ -25,16 +25,14 @@ function getCommitSha() {
 const commitSha = getCommitSha();
 ---
 
-<footer class="mt-auto">
-  <div
-    class="border-border text-fg-muted container mx-auto flex max-w-4xl flex-col gap-3 border-t px-8 py-6 font-mono text-sm md:flex-row md:items-center md:justify-between"
-  >
-    <p>
-      built with <span class="text-fg">Astro</span>
-      <span class="text-comment" aria-hidden="true">/</span>
-      commit <span class="text-fg">{commitSha}</span>
-    </p>
+<footer
+  class="text-fg-muted flex flex-col justify-between gap-4 font-mono text-sm md:flex-row md:items-start md:gap-8"
+>
+  <p>
+    Built with <span class="text-fg">Astro</span>
+    <span class="text-comment" aria-hidden="true">/</span>
+    Commit <span class="text-fg">{commitSha}</span>
+  </p>
 
-    <Link href={repositoryUrl} class="text-sm">GitHub repo</Link>
-  </div>
+  <Link href={repositoryUrl} class="text-sm">Source</Link>
 </footer>

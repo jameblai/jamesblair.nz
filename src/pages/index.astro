@@ -1,6 +1,7 @@
 ---
 import Card from "@/components/Card.astro";
 import { ContactForm } from "@/components/ContactForm";
+import Footer from "@/components/Footer.astro";
 import { GithubContributionGraph } from "@/components/GithubContributionGraph";
 import Heading from "@/components/Heading.astro";
 import Link from "@/components/Link.astro";
@@ -360,5 +361,7 @@ const hackathons: Hackathon[] = [
         <ContactForm client:load />
       </section>
     </main>
+
+    <Footer />
   </div>
 </BaseLayout>
