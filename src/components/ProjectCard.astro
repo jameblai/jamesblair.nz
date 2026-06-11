@@ -1,0 +1,39 @@
+---
+import Card from "@/components/Card.astro";
+import Heading from "@/components/Heading.astro";
+import Link from "@/components/Link.astro";
+import type { Project } from "@/lib/me";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<Card>
+  <Heading tag="h3">{project.name}</Heading>
+  <p>{project.description}</p>
+
+  {
+    !!project.tech?.length && (
+      <ul class="flex flex-wrap gap-2">
+        {project.tech.map((item) => (
+          <li class="bg-string/10 text-string hover:bg-string/15 px-2 py-1 font-mono text-sm transition-colors duration-200">
+            {item}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    !!project.links?.length && (
+      <div class="mt-auto flex gap-4">
+        {project.links.map((link) => (
+          <Link href={link.href}>{link.label}</Link>
+        ))}
+      </div>
+    )
+  }
+</Card>

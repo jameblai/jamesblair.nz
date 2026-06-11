@@ -1,46 +1,12 @@
 ---
-import Card from "@/components/Card.astro";
+import HackathonCard from "@/components/HackathonCard.astro";
 import Heading from "@/components/Heading.astro";
-import Link from "@/components/Link.astro";
-import { hackathons } from "@/lib/home";
+import { hackathons } from "@/lib/me";
 ---
 
 <section class="flex flex-col gap-4">
   <Heading tag="h2">Hackathons</Heading>
   <div class="grid max-w-4xl gap-4">
-    {
-      hackathons.map((hackathon) => (
-        <Card>
-          <div class="flex flex-col gap-1">
-            <Heading tag="h3">{hackathon.event}</Heading>
-            <p class="text-fg-muted">
-              {[
-                hackathon.team ? `Team ${hackathon.team}` : undefined,
-                hackathon.result,
-                hackathon.project,
-              ]
-                .filter(Boolean)
-                .join(" · ")}
-            </p>
-          </div>
-
-          <p>{hackathon.description}</p>
-
-          <ul class="flex flex-wrap gap-2">
-            {hackathon.tech.map((item) => (
-              <li class="bg-string/10 text-string hover:bg-string/15 px-2 py-1 font-mono text-sm transition-colors duration-200">
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <div class="mt-auto flex gap-4">
-            {hackathon.links.map((link) => (
-              <Link href={link.href}>{link.label}</Link>
-            ))}
-          </div>
-        </Card>
-      ))
-    }
+    {hackathons.map((hackathon) => <HackathonCard hackathon={hackathon} />)}
   </div>
 </section>
