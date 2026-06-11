@@ -2,17 +2,7 @@
 import Heading from "@/components/Heading.astro";
 import Link from "@/components/Link.astro";
 import VimCursor from "@/components/VimCursor.astro";
-
-const headerLinks: { label: string; href: string }[] = [
-  {
-    label: "GitHub",
-    href: "https://github.com/jameblai",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/jamesblair14",
-  },
-];
+import { headerLinks } from "@/lib/home";
 ---
 
 <header
