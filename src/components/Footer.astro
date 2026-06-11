@@ -4,16 +4,17 @@ import { execSync } from "node:child_process";
 import Link from "@/components/Link.astro";
 
 const repositoryUrl = "https://github.com/jameblai/jamesblair.nz";
+const astroUrl = "https://astro.build/";
 
 function getCommitSha() {
   const cloudflareSha = process.env.CF_PAGES_COMMIT_SHA;
 
   if (cloudflareSha) {
-    return cloudflareSha.slice(0, 7);
+    return cloudflareSha;
   }
 
   try {
-    return execSync("git rev-parse --short HEAD", {
+    return execSync("git rev-parse HEAD", {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "ignore"],
     }).trim();
@@ -23,15 +24,28 @@ function getCommitSha() {
 }
 
 const commitSha = getCommitSha();
+const shortCommitSha = commitSha.slice(0, 7);
+const commitUrl = `${repositoryUrl}/commit/${commitSha}`;
 ---
 
 <footer
   class="text-fg-muted flex flex-col justify-between gap-4 font-mono text-sm md:flex-row md:items-start md:gap-8"
 >
   <p>
-    Built with <span class="text-fg">Astro</span>
+    Built with <a
+      href={astroUrl}
+      target="_blank"
+      rel="noreferrer"
+      class="text-fg">Astro</a
+    >
     <span class="text-comment" aria-hidden="true">/</span>
-    Commit <span class="text-fg">{commitSha}</span>
+    Commit <a
+      href={commitUrl}
+      target="_blank"
+      rel="noreferrer"
+      class="text-fg"
+      aria-label={`View commit ${commitSha} on GitHub`}>{shortCommitSha}</a
+    >
   </p>
 
   <Link href={repositoryUrl} class="text-sm">Source</Link>
