@@ -95,12 +95,8 @@ export const projects: Project[] = [
       "Built a study app that turns messy notes into Anki-style decks, with a collaborative Tiptap editor synced through Convex and a FastAPI AI service that generates structured flashcards through OpenRouter.",
     links: [
       {
-        label: "App GitHub",
+        label: "GitHub",
         href: "https://github.com/gitgooduoa/ankai",
-      },
-      {
-        label: "AI service GitHub",
-        href: "https://github.com/gitgooduoa/ankai-ai",
       },
     ],
     tech: [
