@@ -1,11 +1,11 @@
-import { useState, type ChangeEvent } from "react";
 import { Button } from "@/components/Button";
+import { cn } from "@/lib/cn";
 import {
-  type ContactFormErrors,
   defaultContactFormState,
   defaultContactFormValues,
+  type ContactFormErrors,
 } from "@/lib/contact-form";
-import { cn } from "@/lib/cn";
+import { useState, type ChangeEvent, type SubmitEvent } from "react";
 
 function Label({
   className,
@@ -102,7 +102,7 @@ export function ContactForm() {
     }));
   }
 
-  async function submit(event: React.FormEvent<HTMLFormElement>) {
+  async function submit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     setPending(true);
 
