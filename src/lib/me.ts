@@ -36,8 +36,10 @@ export const skillMarqueeItems = [
   "React",
   "Next.js",
   "Astro",
+  "Convex",
   "Hono",
   "ElysiaJS",
+  "FastAPI",
   "Tailwind CSS",
   "TanStack Query",
   "TanStack Router",
@@ -45,6 +47,7 @@ export const skillMarqueeItems = [
   "Postgres",
   "SQLite",
   "Sanity CMS",
+  "Clerk",
   "Stripe",
   "React Email",
   "Cloudflare",
@@ -84,6 +87,26 @@ export const projects: Project[] = [
       "Airtable",
       "Stripe",
       "React Email",
+    ],
+  },
+  {
+    name: "AnkAI",
+    description:
+      "Built a study app that turns messy notes into Anki-style decks, with a collaborative Tiptap editor synced through Convex and a FastAPI AI service that generates structured flashcards through OpenRouter.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/gitgooduoa/ankai",
+      },
+    ],
+    tech: [
+      "TypeScript",
+      "Next.js",
+      "Convex",
+      "Clerk",
+      "Tiptap",
+      "FastAPI",
+      "OpenRouter",
     ],
   },
   {
