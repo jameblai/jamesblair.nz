@@ -25,10 +25,6 @@ export const headerLinks: LinkItem[] = [
     label: "GitHub",
     href: "https://github.com/jameblai",
   },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/jamesblair14",
-  },
 ];
 
 export const skillMarqueeItems = [

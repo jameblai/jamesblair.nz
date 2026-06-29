@@ -59,30 +59,3 @@ body {
 .vim-cursor {
   animation: vim-cursor-blink 1s steps(1, end) infinite;
 }
-
-@keyframes skill-marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.skill-marquee {
-  animation: skill-marquee 36s linear infinite;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.marquee-fade {
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 12%,
-    black 88%,
-    transparent
-  );
-}
