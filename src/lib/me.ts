@@ -106,6 +106,26 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "Alien Helpdesk",
+    description:
+      "Rebuilt my DEVS x SESA hackathon concept as a clean solo project, a timed alien support desk where players answer tickets with an in-app manual, client-side game loop, and AI-graded responses.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/jameblai/helpdesk",
+      },
+    ],
+    tech: [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Zustand",
+      "TanStack Form",
+      "AI SDK",
+      "Base UI",
+    ],
+  },
+  {
     name: "Profiles",
     description:
       "A polished link-in-bio platform with auth, profile editing, public username pages, database on D1, and media uploads with R2, deployed on Cloudflare Workers.",
