@@ -25,6 +25,10 @@ export const headerLinks: LinkItem[] = [
     label: "GitHub",
     href: "https://github.com/jameblai",
   },
+  {
+    label: "X",
+    href: "https://x.com/refrainsclub",
+  },
 ];
 
 export const skillMarqueeItems = [
@@ -86,6 +90,57 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "Saku",
+    description:
+      "Built a Discord-hosted coding agent in Rust, packaged as a single binary with threaded conversations, file and shell tools, web search, session memory, and a lightweight Codex-backed harness for working on codebases away from the terminal.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/jameblai/saku",
+      },
+    ],
+    tech: ["Rust", "Discord", "Serenity", "Tokio", "SQLite", "Codex", "Exa"],
+  },
+  {
+    name: "Lectern",
+    description:
+      "Building an event management platform for organisations, bringing publishing, registration, ticketing, check-in, participant imports, branded public pages, and printable materials into one source of truth.",
+    tech: [
+      "TypeScript",
+      "TanStack Start",
+      "React",
+      "Convex",
+      "WorkOS",
+      "Stripe",
+      "Resend",
+      "React PDF",
+    ],
+  },
+  {
+    name: "Alien Helpdesk",
+    description:
+      "Rebuilt my DEVS x SESA hackathon concept as a clean solo project, a timed alien support desk where players answer tickets with an in-app manual, client-side game loop, and AI-graded responses.",
+    links: [
+      {
+        label: "Website",
+        href: "https://helpdesk.blair.nz/",
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/jameblai/helpdesk",
+      },
+    ],
+    tech: [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Zustand",
+      "TanStack Form",
+      "AI SDK",
+      "Base UI",
+    ],
+  },
+  {
     name: "AnkAI",
     description:
       "Built a study app that turns messy notes into Anki-style decks, with a collaborative Tiptap editor synced through Convex and a FastAPI AI service that generates structured flashcards through OpenRouter.",
@@ -103,26 +158,6 @@ export const projects: Project[] = [
       "Tiptap",
       "FastAPI",
       "OpenRouter",
-    ],
-  },
-  {
-    name: "Alien Helpdesk",
-    description:
-      "Rebuilt my DEVS x SESA hackathon concept as a clean solo project, a timed alien support desk where players answer tickets with an in-app manual, client-side game loop, and AI-graded responses.",
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/jameblai/helpdesk",
-      },
-    ],
-    tech: [
-      "TypeScript",
-      "Next.js",
-      "React",
-      "Zustand",
-      "TanStack Form",
-      "AI SDK",
-      "Base UI",
     ],
   },
   {
@@ -155,6 +190,12 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "Bridging Plugin",
+    description:
+      "Developed a multiplayer game server plugin in Kotlin, implementing a session replay system, packet-level NMS hooks, and a persistent MariaDB database layer using Exposed and coroutines for async handling.",
+    tech: ["Kotlin", "Spigot", "Exposed", "MariaDB"],
+  },
+  {
     name: "Air Quality Monitor",
     description:
       "Developed an air quality monitor on an ESP32 in C++, pushing serialised eCO2, TVOC and climate readings to a Hono/Drizzle REST API, with a Next.js frontend displaying live statistics using TanStack Query.",
@@ -176,22 +217,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "RHS Netball",
-    description:
-      "Developed a static website using Astro, serving assets from Cloudflare R2 – optimised for fast load times, giving coaches and umpires quick access to resources, photos and the embedded calendar.",
-    links: [
-      {
-        href: "https://rhs-netball.vercel.app",
-        label: "Website",
-      },
-      {
-        href: "https://github.com/jameblai/rhs-netball",
-        label: "GitHub",
-      },
-    ],
-    tech: ["TypeScript", "Astro", "SolidJS", "Tailwind CSS", "Sentry", "R2"],
-  },
-  {
     name: "Homelab",
     description:
       "Maintain self-hosted infrastructure for learning production-style operations, including Linux servers, Docker services, reverse proxies, DNS, backups, and home networking.",
@@ -202,12 +227,6 @@ export const projects: Project[] = [
     description:
       "Identified and patched a state desync bug in PaperSpigot – out-of-range block placements were rejected without a corrective client update, causing ghost blocks. Fixed by forking the project and issuing the missing update packets.",
     tech: ["Java", "PaperSpigot", "Minecraft", "NMS"],
-  },
-  {
-    name: "Bridging Plugin",
-    description:
-      "Developed a multiplayer game server plugin in Kotlin, implementing a session replay system, packet-level NMS hooks, and a persistent MariaDB database layer using Exposed and coroutines for async handling.",
-    tech: ["Kotlin", "Spigot", "Exposed", "MariaDB"],
   },
 ];
 
