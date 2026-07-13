@@ -114,7 +114,7 @@ export const projects: Project[] = [
   {
     name: "Homelab",
     description:
-      "Maintain self-hosted infrastructure for learning production-style operations, including Linux servers, Docker services, reverse proxies, DNS, backups, and home networking.",
+      "Maintain self-hosted infrastructure for learning production-style operations, including Linux servers, Docker services, reverse proxies, backups, and home networking.",
     tech: ["Linux", "Docker", "Caddy", "Cloudflare", "Networking", "UniFi"],
   },
   {
