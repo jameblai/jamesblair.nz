@@ -29,6 +29,10 @@ export const headerLinks: LinkItem[] = [
     label: "X",
     href: "https://x.com/refrainsclub",
   },
+  {
+    label: "Email",
+    href: "mailto:james@blair.nz"
+  }
 ];
 
 export const skillMarqueeItems = [
