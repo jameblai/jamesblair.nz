@@ -24,7 +24,7 @@ export const projects: Project[] = [
   {
     name: "WaiMUN",
     description:
-      "Built and deployed the full-stack event platform in collaboration with organising committee members – managing registration, payments, personalised badge generation and automated emails for 126 registered students across 15 schools.",
+      "Website and registration workflow for 126 schools across 15 schools, with Sanity CMS, Airtable, and Stripe. Developed internal tooling to generate event badges, and deliver personalised allocation emails.",
     links: [
       {
         label: "Website",
@@ -36,35 +36,21 @@ export const projects: Project[] = [
       },
     ],
     tech: [
-      "TypeScript",
       "Astro",
-      "Tailwind CSS",
       "Sanity CMS",
       "Airtable",
       "Stripe",
+      "TypeScript",
       "React Email",
     ],
   },
   {
-    name: "Saku",
-    description:
-      "Built a Discord-hosted coding agent in Rust, packaged as a single binary with threaded conversations, file and shell tools, web search, session memory, and a lightweight Codex-backed harness for working on codebases away from the terminal.",
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/jameblai/saku",
-      },
-    ],
-    tech: ["Rust", "Discord", "Serenity", "Tokio", "SQLite", "Codex", "Exa"],
-  },
-  {
     name: "Lectern",
     description:
-      "Building an event management platform for organisations, bringing publishing, registration, ticketing, check-in, participant imports, branded public pages, and printable materials into one source of truth.",
+      "Event management platform for organisations, bringing publishing, registration, ticketing, check-in, participant imports, branded public pages, and printable materials into one place.",
     tech: [
       "TypeScript",
       "TanStack Start",
-      "React",
       "Convex",
       "WorkOS",
       "Stripe",
@@ -73,12 +59,24 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "Alien Helpdesk",
+    name: "Saku",
     description:
-      "Rebuilt my DEVS x SESA hackathon concept as a clean solo project, a timed alien support desk where players answer tickets with an in-app manual, client-side game loop, and AI-graded responses.",
+      "Discord-hosted coding agent and harness in Rust with threaded conversations, file and shell tools, web search, and memory system for working on codebases away from the terminal.",
     links: [
       {
-        label: "Website",
+        label: "GitHub",
+        href: "https://github.com/jameblai/saku",
+      },
+    ],
+    tech: ["Rust", "Serenity", "Codex", "Exa"],
+  },
+  {
+    name: "Alien Helpdesk",
+    description:
+      "Helpdesk simulator game where players answer tickets from aliens, with a client-side game loop, and user responses graded by an LLM.",
+    links: [
+      {
+        label: "Demo",
         href: "https://helpdesk.blair.nz/",
       },
       {
@@ -87,11 +85,9 @@ export const projects: Project[] = [
       },
     ],
     tech: [
-      "TypeScript",
       "Next.js",
-      "React",
+      "TypeScript",
       "Zustand",
-      "TanStack Form",
       "AI SDK",
       "Base UI",
     ],
@@ -99,7 +95,7 @@ export const projects: Project[] = [
   {
     name: "AnkAI",
     description:
-      "Built a study app that turns messy notes into Anki-style decks, with a collaborative Tiptap editor synced through Convex and a FastAPI AI service that generates structured flashcards through OpenRouter.",
+      "Built a study app that turns messy notes into Anki-style decks, with a collaborative, realtime editor and an AI microservice which generates structured flashcards.",
     links: [
       {
         label: "GitHub",
@@ -107,69 +103,12 @@ export const projects: Project[] = [
       },
     ],
     tech: [
-      "TypeScript",
       "Next.js",
+      "TypeScript",
       "Convex",
       "Clerk",
       "Tiptap",
-      "FastAPI",
       "OpenRouter",
-    ],
-  },
-  {
-    name: "Profiles",
-    description:
-      "A polished link-in-bio platform with auth, profile editing, public username pages, database on D1, and media uploads with R2, deployed on Cloudflare Workers.",
-    links: [
-      {
-        label: "Website",
-        href: "https://profiles.r80.workers.dev/",
-      },
-      {
-        label: "Profile",
-        href: "https://profiles.r80.workers.dev/u/james",
-      },
-      {
-        label: "GitHub",
-        href: "https://github.com/jameblai/profiles",
-      },
-    ],
-    tech: [
-      "TypeScript",
-      "TanStack Start",
-      "React",
-      "Better Auth",
-      "Drizzle ORM",
-      "Cloudflare Workers",
-      "D1",
-      "R2",
-    ],
-  },
-  {
-    name: "Bridging Plugin",
-    description:
-      "Developed a multiplayer game server plugin in Kotlin, implementing a session replay system, packet-level NMS hooks, and a persistent MariaDB database layer using Exposed and coroutines for async handling.",
-    tech: ["Kotlin", "Spigot", "Exposed", "MariaDB"],
-  },
-  {
-    name: "Air Quality Monitor",
-    description:
-      "Developed an air quality monitor on an ESP32 in C++, pushing serialised eCO2, TVOC and climate readings to a Hono/Drizzle REST API, with a Next.js frontend displaying live statistics using TanStack Query.",
-    links: [
-      {
-        href: "https://github.com/jameblai/air-quality",
-        label: "GitHub",
-      },
-    ],
-    tech: [
-      "C++",
-      "Arduino",
-      "TypeScript",
-      "Hono",
-      "Drizzle ORM",
-      "Next.js",
-      "Tailwind CSS",
-      "TanStack Query",
     ],
   },
   {
@@ -179,7 +118,13 @@ export const projects: Project[] = [
     tech: ["Linux", "Docker", "Caddy", "Cloudflare", "Networking", "UniFi"],
   },
   {
-    name: "PaperSpigot Fork",
+    name: "Bridging Plugin",
+    description:
+      "Developed a multiplayer game server plugin in Kotlin, implementing a session replay system, packet-level NMS hooks, and a persistent MariaDB database layer using Exposed and coroutines for async handling.",
+    tech: ["Kotlin", "Spigot", "Exposed", "MariaDB"],
+  },
+  {
+    name: "PaperSpigot Patch",
     description:
       "Identified and patched a state desync bug in PaperSpigot – out-of-range block placements were rejected without a corrective client update, causing ghost blocks. Fixed by forking the project and issuing the missing update packets.",
     tech: ["Java", "PaperSpigot", "Minecraft", "NMS"],
