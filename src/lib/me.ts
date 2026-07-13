@@ -73,7 +73,7 @@ export const projects: Project[] = [
   {
     name: "Alien Helpdesk",
     description:
-      "Helpdesk simulator game where players answer tickets from aliens, with a client-side game loop, and user responses graded by an LLM.",
+      "Helpdesk simulator game where players answer tickets from aliens, with AI-graded user responses.",
     links: [
       {
         label: "Demo",
@@ -84,13 +84,7 @@ export const projects: Project[] = [
         href: "https://github.com/jameblai/helpdesk",
       },
     ],
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Zustand",
-      "AI SDK",
-      "Base UI",
-    ],
+    tech: ["Next.js", "TypeScript", "Zustand", "AI SDK", "Base UI"],
   },
   {
     name: "AnkAI",
@@ -102,14 +96,7 @@ export const projects: Project[] = [
         href: "https://github.com/gitgooduoa/ankai",
       },
     ],
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Convex",
-      "Clerk",
-      "Tiptap",
-      "OpenRouter",
-    ],
+    tech: ["Next.js", "TypeScript", "Convex", "Clerk", "Tiptap", "OpenRouter"],
   },
   {
     name: "Homelab",
