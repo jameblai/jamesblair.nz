@@ -19,7 +19,7 @@ const { project } = Astro.props;
     !!project.tech?.length && (
       <ul class="flex flex-wrap gap-2">
         {project.tech.map((item) => (
-          <li class="bg-string/10 text-string hover:bg-string/15 px-2 py-1 font-mono text-sm transition-colors duration-200">
+          <li class="bg-string/10 text-string hover:bg-string/15 px-2 py-1 font-mono text-xs transition-colors duration-200">
             {item}
           </li>
         ))}
