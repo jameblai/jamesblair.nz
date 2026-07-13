@@ -2,7 +2,6 @@
 import Heading from "@/components/Heading.astro";
 import Link from "@/components/Link.astro";
 import VimCursor from "@/components/VimCursor.astro";
-import { headerLinks } from "@/lib/me";
 ---
 
 <header
@@ -13,6 +12,7 @@ import { headerLinks } from "@/lib/me";
   </Heading>
 
   <div class="flex gap-4">
-    {headerLinks.map(({ label, href }) => <Link href={href}>{label}</Link>)}
+    <Link href="mailto:james@blair.nz" class="text-subtle">james@blair.nz</Link>
+    <Link href="https://github.com/jameblai">GitHub</Link>
   </div>
 </header>

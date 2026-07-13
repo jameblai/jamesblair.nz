@@ -20,21 +20,6 @@ export interface Hackathon {
   tech: string[];
 }
 
-export const headerLinks: LinkItem[] = [
-  {
-    label: "GitHub",
-    href: "https://github.com/jameblai",
-  },
-  {
-    label: "X",
-    href: "https://x.com/refrainsclub",
-  },
-  {
-    label: "Email",
-    href: "mailto:james@blair.nz"
-  }
-];
-
 export const projects: Project[] = [
   {
     name: "WaiMUN",
