@@ -35,39 +35,6 @@ export const headerLinks: LinkItem[] = [
   }
 ];
 
-export const skillMarqueeItems = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Astro",
-  "Convex",
-  "Hono",
-  "ElysiaJS",
-  "FastAPI",
-  "Tailwind CSS",
-  "TanStack Query",
-  "TanStack Router",
-  "Drizzle ORM",
-  "Postgres",
-  "SQLite",
-  "Sanity CMS",
-  "Clerk",
-  "Stripe",
-  "React Email",
-  "Cloudflare",
-  "Vercel",
-  "Docker",
-  "Linux",
-  "Caddy",
-  "Git",
-  "Python",
-  "Kotlin",
-  "C++",
-  "Base UI",
-  "Radix UI",
-  "shadcn",
-];
-
 export const projects: Project[] = [
   {
     name: "WaiMUN",
