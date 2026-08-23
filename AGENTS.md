@@ -2,10 +2,7 @@
 
 This site is built with Astro, React islands, Tailwind CSS, pnpm, ESLint, and Prettier.
 
-- Static output — all pages prerendered at build time, served from Cloudflare Pages CDN.
-- React islands load client-side for interactivity (contact form, contribution graph).
+- Static output — all pages prerendered at build time, served from Cloudflare Workers + Assets.
+- React islands load client-side for interactivity (contribution graph).
 - GitHub contributions are fetched client-side from the jogruber API (CORS-safe).
-- The contact form posts to `/api/contact`, handled by a Cloudflare Pages Function (`functions/api/contact.ts`).
-- The Pages Function sends Discord embeds using the `DISCORD_WEBHOOK_URL` secret.
-- Environment secrets are set in the Cloudflare Pages dashboard (or `wrangler pages secret put`).
-- Local dev: use `wrangler pages dev ./dist` with secrets in `.dev.vars`.
+- Local dev: `pnpm dev` for Astro development server, or `pnpm build && wrangler dev` to preview the production build with Workers.

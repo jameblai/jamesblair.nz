@@ -11,6 +11,7 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "deploy": "pnpm build && wrangler deploy",
     "astro": "astro",
     "lint": "eslint .",
     "format": "prettier --write .",
