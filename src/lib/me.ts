@@ -59,6 +59,22 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "TimeTree",
+    description:
+      "Lead developer on a UOACS × DEVS hackathon project. Maps decisions as pathways so you can see how outcomes branch.",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/jameblai/uoacs-devs-hackathon",
+      },
+      {
+        label: "Demo",
+        href: "https://blairshare.s3.us-east-1.amazonaws.com/Cap+2026-07-19+at+22.03.49_4x.mp4",
+      },
+    ],
+    tech: ["Next.js", "TypeScript", "Convex", "Clerk", "AI SDK", "React Flow"],
+  },
+  {
     name: "Saku",
     description:
       "Discord-hosted coding agent and harness in Rust with threaded conversations, file and shell tools, web search, and memory system for working on codebases away from the terminal.",
