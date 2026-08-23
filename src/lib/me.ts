@@ -24,7 +24,7 @@ export const projects: Project[] = [
   {
     name: "WaiMUN",
     description:
-      "Website and registration workflow for 126 schools across 15 schools, with Sanity CMS, Airtable, and Stripe. Developed internal tooling to generate event badges, and deliver personalised allocation emails.",
+      "Website and registration for Interschool MUN (~80 delegates in 2024, over 120 in 2025). Sanity CMS, Airtable, and Stripe, plus tooling for event badges and personalised allocation emails.",
     links: [
       {
         label: "Website",
