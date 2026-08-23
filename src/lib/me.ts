@@ -61,7 +61,7 @@ export const projects: Project[] = [
   {
     name: "timetree",
     description:
-      "Lead developer on a UOACS × DEVS hackathon team build. Maps decisions as pathways so you can see how outcomes branch.",
+      "Lead developer on a UOACS × DEVS hackathon project. Maps decisions as pathways so you can see how outcomes branch.",
     links: [
       {
         label: "GitHub",
