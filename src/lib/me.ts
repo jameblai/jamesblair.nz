@@ -59,7 +59,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "timetree",
+    name: "TimeTree",
     description:
       "Lead developer on a UOACS × DEVS hackathon project. Maps decisions as pathways so you can see how outcomes branch.",
     links: [
@@ -68,7 +68,7 @@ export const projects: Project[] = [
         href: "https://github.com/jameblai/uoacs-devs-hackathon",
       },
       {
-        label: "Demo video",
+        label: "Demo",
         href: "https://blairshare.s3.us-east-1.amazonaws.com/Cap+2026-07-19+at+22.03.49_4x.mp4",
       },
     ],
