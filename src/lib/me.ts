@@ -214,7 +214,7 @@ export const education: Education[] = [
 
 export const volunteering: VolunteerRole[] = [
   {
-    title: "Head of Operations (former)",
+    title: "Head of Operations",
     org: "WaiMUN",
     period: "2024 – 2025",
     description:
