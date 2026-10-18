@@ -45,6 +45,18 @@ export const projects: Project[] = [
     ],
   },
   {
+    name: "Refab Workshop",
+    description:
+      "Website for my dad's Hamilton furniture upcycling and woodworking business, with a photo gallery, workshop listings, and a CMS he can update himself.",
+    links: [
+      {
+        label: "Website",
+        href: "https://refab.nz",
+      },
+    ],
+    tech: ["Astro", "Tailwind CSS", "Pages CMS", "Cloudflare Pages"],
+  },
+  {
     name: "Lectern",
     description:
       "Event management platform for organisations, bringing publishing, registration, ticketing, check-in, participant imports, branded public pages, and printable materials into one place.",
