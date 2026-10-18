@@ -1,0 +1,24 @@
+---
+import Card from "@/components/Card.astro";
+import Heading from "@/components/Heading.astro";
+import { displayPeriod, education } from "@/lib/me";
+---
+
+<section class="flex flex-col gap-4">
+  <Heading tag="h2">Education</Heading>
+  <div class="grid max-w-4xl gap-4">
+    {
+      education.map((item) => {
+        const period = displayPeriod(item);
+
+        return (
+          <Card>
+            <Heading tag="h3">{item.degree}</Heading>
+            <p>{item.institution}</p>
+            {period && <p class="text-subtle font-mono text-sm">{period}</p>}
+          </Card>
+        );
+      })
+    }
+  </div>
+</section>
