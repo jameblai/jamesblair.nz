@@ -20,6 +20,28 @@ export interface Hackathon {
   tech: string[];
 }
 
+export interface Education {
+  degree: string;
+  institution: string;
+  period?: string;
+  current?: boolean;
+}
+
+export interface VolunteerRole {
+  title: string;
+  org: string;
+  period?: string;
+  current?: boolean;
+  description?: string;
+}
+
+export function displayPeriod(item: {
+  period?: string;
+  current?: boolean;
+}): string | undefined {
+  return item.period ?? (item.current ? "Present" : undefined);
+}
+
 export const projects: Project[] = [
   {
     name: "WaiMUN",
@@ -178,5 +200,22 @@ export const hackathons: Hackathon[] = [
       },
     ],
     tech: ["TypeScript", "Hono", "TanStack Router", "SQLite", "Solidity"],
+  },
+];
+
+export const education: Education[] = [
+  {
+    degree: "Bachelor of Science",
+    institution: "University of Auckland",
+    period: "2026 – 2028 (expected)",
+    current: true,
+  },
+];
+
+export const volunteering: VolunteerRole[] = [
+  {
+    title: "Head of Operations",
+    org: "WaiMUN",
+    period: "2024 – 2025",
   },
 ];

@@ -1,0 +1,25 @@
+---
+import Card from "@/components/Card.astro";
+import Heading from "@/components/Heading.astro";
+import { displayPeriod, volunteering } from "@/lib/me";
+---
+
+<section class="flex flex-col gap-4">
+  <Heading tag="h2">Volunteering</Heading>
+  <div class="grid max-w-4xl gap-4">
+    {
+      volunteering.map((item) => {
+        const period = displayPeriod(item);
+
+        return (
+          <Card>
+            <Heading tag="h3">{item.title}</Heading>
+            <p>{item.org}</p>
+            {period && <p class="text-subtle font-mono text-sm">{period}</p>}
+            {item.description?.trim() && <p>{item.description}</p>}
+          </Card>
+        );
+      })
+    }
+  </div>
+</section>
