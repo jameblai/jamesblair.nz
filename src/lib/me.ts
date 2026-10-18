@@ -22,6 +22,12 @@ export interface Hackathon {
 
 export const projects: Project[] = [
   {
+    name: "Refab Workshop",
+    description:
+      "Website for Refab Workshop, a Hamilton business run by my dad that upcycles furniture and makes cutting boards and woodworking pieces. Homepage gallery, workshop listings with ticket links, and a CMS so he can add workshops and photos himself. Launching soon.",
+    tech: ["Astro", "Tailwind CSS", "Pages CMS", "Cloudflare Pages"],
+  },
+  {
     name: "WaiMUN",
     description:
       "Website and registration for Interschool MUN (~80 delegates in 2024, over 120 in 2025). Sanity CMS, Airtable, and Stripe, plus tooling for event badges and personalised allocation emails.",
