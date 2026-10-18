@@ -16,7 +16,7 @@ import { displayPeriod, volunteering } from "@/lib/me";
             <Heading tag="h3">{item.title}</Heading>
             <p>{item.org}</p>
             {period && <p class="text-subtle font-mono text-sm">{period}</p>}
-            {item.description && <p>{item.description}</p>}
+            {item.description?.trim() && <p>{item.description}</p>}
           </Card>
         );
       })

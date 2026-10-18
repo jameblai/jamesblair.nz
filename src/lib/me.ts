@@ -217,7 +217,5 @@ export const volunteering: VolunteerRole[] = [
     title: "Head of Operations",
     org: "WaiMUN",
     period: "2024 – 2025",
-    description:
-      "Student-led Waikato Model United Nations organisation. Also built and maintains its website.",
   },
 ];
