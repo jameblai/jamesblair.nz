@@ -18,6 +18,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "7.css": "^0.21.1",
     "@astrojs/react": "^5.0.7",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.3.0",

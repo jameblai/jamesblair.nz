@@ -1,12 +1,11 @@
 ---
-import Heading from "@/components/Heading.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
+import Window from "@/components/Window.astro";
 import { projects } from "@/lib/me";
 ---
 
-<section class="flex flex-col gap-4">
-  <Heading tag="h2">Projects</Heading>
-  <div class="grid max-w-4xl gap-4">
+<Window title="Projects" heading="h2" id="projects-title" class="tile-projects">
+  <div class="project-grid">
     {projects.map((project) => <ProjectCard project={project} />)}
   </div>
-</section>
+</Window>

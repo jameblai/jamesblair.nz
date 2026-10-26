@@ -1,21 +1,32 @@
 ---
 import Education from "@/components/Education.astro";
-import Header from "@/components/Header.astro";
 import Intro from "@/components/Intro.astro";
+import Links from "@/components/Links.astro";
+import Photography from "@/components/Photography.astro";
 import Projects from "@/components/Projects.astro";
+import Skills from "@/components/Skills.astro";
 import Volunteering from "@/components/Volunteering.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { site } from "@/lib/site";
+
+const host = new URL(site.url).host;
 ---
 
 <BaseLayout>
-  <div class="container mx-auto flex max-w-4xl flex-col p-8">
-    <Header />
-
-    <main class="flex flex-col gap-8 py-8">
+  <div class="aero-desktop win7">
+    <a class="skip-link aero-button" href="#content">Skip to content</a>
+    <main id="content" class="bento">
       <Intro />
+      <Links />
+      <Photography />
       <Projects />
+      <Skills />
       <Education />
       <Volunteering />
     </main>
+    <footer class="status-bar site-status">
+      <p class="status-bar-field">{site.name}</p>
+      <p class="status-bar-field">{host}</p>
+    </footer>
   </div>
 </BaseLayout>

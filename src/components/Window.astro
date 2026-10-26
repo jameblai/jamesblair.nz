@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  id: string;
+  heading?: "h1" | "h2";
+  class?: string;
+}
+
+const { title, id, heading, class: className } = Astro.props;
+const TitleTag = heading;
+---
+
+<section
+  class:list={["window", "glass", "active", className]}
+  aria-labelledby={id}
+>
+  <div class="title-bar">
+    {
+      TitleTag ? (
+        <TitleTag id={id} class="title-bar-text">
+          {title}
+        </TitleTag>
+      ) : (
+        <div class="title-bar-text">{title}</div>
+      )
+    }
+    <div class="title-bar-controls" aria-hidden="true">
+      <button type="button" tabindex="-1" aria-label="Minimize"></button>
+      <button type="button" tabindex="-1" aria-label="Maximize"></button>
+      <button type="button" tabindex="-1" aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body has-space">
+    <slot />
+  </div>
+</section>

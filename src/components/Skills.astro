@@ -1,0 +1,23 @@
+---
+import Window from "@/components/Window.astro";
+import { skills } from "@/lib/me";
+---
+
+<Window title="Skills" heading="h2" id="skills-title" class="tile-skills">
+  <div class="skill-grid">
+    {
+      skills.map((group) => (
+        <fieldset>
+          <legend>
+            <h3>{group.label}</h3>
+          </legend>
+          <ul class="plain-list">
+            {group.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </fieldset>
+      ))
+    }
+  </div>
+</Window>

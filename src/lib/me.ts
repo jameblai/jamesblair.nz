@@ -205,7 +205,7 @@ export const hackathons: Hackathon[] = [
 
 export const education: Education[] = [
   {
-    degree: "Bachelor of Science",
+    degree: "Bachelor of Science in Computer Science",
     institution: "University of Auckland",
     period: "2026 – 2028 (expected)",
     current: true,
@@ -214,8 +214,61 @@ export const education: Education[] = [
 
 export const volunteering: VolunteerRole[] = [
   {
+    title: "Events Director",
+    org: "UOACYS",
+    period: "2026 – present",
+    current: true,
+  },
+  {
     title: "Head of Operations",
     org: "WaiMUN",
     period: "2024 – 2025",
   },
 ];
+
+export interface SkillGroup {
+  label: string;
+  items: string[];
+}
+
+export const skills: SkillGroup[] = [
+  {
+    label: "Languages",
+    items: ["TypeScript/JavaScript", "Rust", "Kotlin", "Java", "HTML/CSS"],
+  },
+  {
+    label: "Frameworks & services",
+    items: [
+      "React",
+      "Next.js",
+      "Astro",
+      "TanStack Start",
+      "Convex",
+      "Sanity",
+      "Stripe",
+      "Clerk",
+      "WorkOS",
+      "Resend",
+    ],
+  },
+  {
+    label: "Tools",
+    items: ["Git/GitHub", "Nix", "pnpm", "Airtable"],
+  },
+  {
+    label: "Homelab",
+    items: [
+      "Linux (Debian, NixOS)",
+      "Docker",
+      "Caddy",
+      "Cloudflare",
+      "Tailscale",
+      "UniFi",
+    ],
+  },
+];
+
+export const photography = {
+  title: "Photography",
+  body: "Just a hobby.",
+} as const;

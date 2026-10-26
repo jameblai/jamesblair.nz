@@ -1,24 +1,29 @@
 ---
-import Card from "@/components/Card.astro";
-import Heading from "@/components/Heading.astro";
+import Window from "@/components/Window.astro";
 import { displayPeriod, education } from "@/lib/me";
 ---
 
-<section class="flex flex-col gap-4">
-  <Heading tag="h2">Education</Heading>
-  <div class="grid max-w-4xl gap-4">
+<Window
+  title="Education"
+  heading="h2"
+  id="education-title"
+  class="tile-education"
+>
+  <div class="entry-list">
     {
       education.map((item) => {
         const period = displayPeriod(item);
 
         return (
-          <Card>
-            <Heading tag="h3">{item.degree}</Heading>
+          <fieldset>
+            <legend>
+              <h3>{item.degree}</h3>
+            </legend>
             <p>{item.institution}</p>
-            {period && <p class="text-subtle font-mono text-sm">{period}</p>}
-          </Card>
+            {period && <p class="meta">{period}</p>}
+          </fieldset>
         );
       })
     }
   </div>
-</section>
+</Window>
