@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@import "7.css/dist/7.scoped.css" layer(components);
 
 @theme {
-  --font-sans: var(--font-ibm-plex-sans);
-  --font-mono: var(--font-lilex);
+  --font-sans:
+    "Segoe UI", "SegoeUI", "Noto Sans", "Liberation Sans", sans-serif;
+  --font-mono:
+    ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", monospace;
   --color-bg: #101010;
   --color-bg-elevated: #1a1a1a;
   --color-bg-hover: #282828;
@@ -35,27 +38,328 @@
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-fg);
+  background-color: #0b2a5b;
+  color: #1a1a1a;
+  font-family: var(--font-sans);
 }
 
 ::selection {
-  background-color: color-mix(in srgb, var(--color-accent) 35%, transparent);
-  color: var(--color-fg);
+  background-color: #cce8ff;
+  color: #1a1a1a;
 }
 
-@keyframes vim-cursor-blink {
-  0%,
-  49% {
-    opacity: 1;
+@layer components {
+  .aero-desktop {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 100%;
+    color: #1a1a1a;
+    font: var(--w7-font);
+    background-color: #0b2a5b;
+    background-image:
+      radial-gradient(
+        ellipse 90% 55% at 8% -8%,
+        rgba(255, 255, 255, 0.55),
+        transparent 52%
+      ),
+      radial-gradient(
+        ellipse 70% 48% at 100% 0%,
+        rgba(186, 224, 255, 0.42),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 55% 40% at 70% 110%,
+        rgba(8, 28, 72, 0.45),
+        transparent 55%
+      ),
+      linear-gradient(
+        165deg,
+        #b9dcfa 0%,
+        #6aafe4 18%,
+        #3b86cf 42%,
+        #1f5ea8 68%,
+        #12386f 100%
+      );
   }
 
-  50%,
-  100% {
-    opacity: 0;
+  .skip-link {
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    z-index: 20;
   }
-}
 
-.vim-cursor {
-  animation: vim-cursor-blink 1s steps(1, end) infinite;
+  .skip-link:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    width: min(1120px, calc(100% - 24px));
+    margin-inline: auto;
+    padding-block: 16px 24px;
+  }
+
+  .bento > .window {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .win7 .title-bar-text {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .win7 .title-bar-controls {
+    flex: none;
+    pointer-events: none;
+  }
+
+  .win7 .window-body {
+    min-width: 0;
+    color: #1a1a1a;
+    font-size: 13px;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+  }
+
+  .win7 .window-body p {
+    margin: 0;
+  }
+
+  .win7 fieldset legend h3 {
+    display: inline;
+    margin: 0;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+  }
+
+  .win7 .window fieldset {
+    margin-bottom: 0;
+  }
+
+  .tile-intro .title-bar-text {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .tile-intro .window-body {
+    display: flex;
+    align-items: center;
+  }
+
+  .tile-intro .window-body p {
+    max-width: 40em;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .project-grid,
+  .skill-grid,
+  .entry-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .project,
+  .project > fieldset,
+  .skill-grid > fieldset,
+  .entry-list > fieldset {
+    height: 100%;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  .actions-stack {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .win7 a.aero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 75px;
+    min-height: 23px;
+    padding: 0 12px;
+    border: 1px solid var(--w7-el-bd);
+    border-radius: var(--w7-el-bdr);
+    background: var(--w7-el-grad);
+    box-shadow: var(--w7-el-sd);
+    color: #222;
+    font: var(--w7-font);
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .actions-stack .aero-button {
+    width: 100%;
+  }
+
+  .win7 a.aero-button:hover {
+    border-color: var(--w7-el-bd-h);
+    background-image: var(--w7-el-grad-h);
+    color: #222;
+    text-decoration: none;
+  }
+
+  .win7 a.aero-button:active {
+    border-color: var(--w7-el-bd-a);
+    background-image: var(--w7-el-grad-a);
+    color: #222;
+    text-decoration: none;
+  }
+
+  .win7 a.aero-button:focus-visible {
+    outline: 1px dotted #000;
+    outline-offset: -4px;
+    box-shadow: inset 0 0 0 2px #98d1ef;
+    color: #222;
+    text-decoration: none;
+  }
+
+  .tech-list,
+  .plain-list {
+    margin: 0;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tech-list li {
+    border: 1px solid var(--w7-el-bd);
+    border-radius: var(--w7-el-bdr);
+    background: #fff;
+    color: #1a1a1a;
+    line-height: 1.4;
+    padding: 1px 6px;
+  }
+
+  .plain-list {
+    padding-left: 1.15em;
+  }
+
+  .meta {
+    color: #3a3a3a;
+  }
+
+  .site-status {
+    margin: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  @media (min-width: 720px) {
+    .bento {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      width: min(1120px, calc(100% - 32px));
+    }
+
+    .tile-intro,
+    .tile-projects,
+    .tile-skills {
+      grid-column: span 2;
+    }
+
+    .bento > .window {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .bento > .window > .title-bar {
+      flex: none;
+    }
+
+    .bento > .window > .window-body {
+      flex: 1 1 auto;
+    }
+
+    .project-grid,
+    .skill-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1040px) {
+    .bento {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-areas:
+        "intro intro intro intro links links"
+        "intro intro intro intro photo photo"
+        "projects projects projects projects projects projects"
+        "skills skills skills skills skills skills"
+        "education education education volunteering volunteering volunteering";
+    }
+
+    .tile-intro {
+      grid-area: intro;
+      min-height: 230px;
+    }
+
+    .tile-links {
+      grid-area: links;
+    }
+
+    .tile-photo {
+      grid-area: photo;
+    }
+
+    .tile-projects {
+      grid-area: projects;
+    }
+
+    .tile-skills {
+      grid-area: skills;
+    }
+
+    .tile-education {
+      grid-area: education;
+    }
+
+    .tile-volunteering {
+      grid-area: volunteering;
+    }
+
+    .skill-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .win7 button:focus,
+    .win7 [role="button"]:focus {
+      animation: none;
+    }
+  }
 }
